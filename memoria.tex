@@ -61,16 +61,16 @@
 \vspace{3cm}
 
 \Large
-TITULACIÓN EN MAYÚSCULAS
+GRADO EN INGENIERÍA EN SISTEMAS AUDIOVISUALES Y MULTIMEDIA
 
 \vspace{0.4cm}
 
 \large
-Curso Académico 20XX/20XX
+Curso Académico 2019/2020
 
 \vspace{0.8cm}
 
-Trabajo Fin de Grado/Máster
+Trabajo Fin de Grado
 
 \vspace{2.5cm}
 
@@ -99,7 +99,7 @@ Tutor : Dr. Gregorio Robles
 \vspace{-4cm}
 \begin{center}
 \LARGE
-\textbf{Trabajo Fin de Grado/Máster}
+\textbf{Trabajo Fin de Grado}
 
 \vspace{1cm}
 \large
@@ -113,7 +113,7 @@ Título del Trabajo con Letras Capitales para Sustantivos y Adjetivos
 \end{center}
 
 \vspace{1cm}
-La defensa del presente Proyecto Fin de Carrera se realizó el día \qquad$\;\,$ de \qquad\qquad\qquad\qquad \newline de 20XX, siendo calificada por el siguiente tribunal:
+La defensa del presente Proyecto Fin de Carrera se realizó el día \qquad$\;\,$ de \qquad\qquad\qquad\qquad \newline de 2020, siendo calificada por el siguiente tribunal:
 
 
 \vspace{0.5cm}
@@ -135,7 +135,7 @@ y habiendo obtenido la siguiente calificación:
 
 \vspace{1cm}
 \begin{flushright}
-Fuenlabrada, a \qquad$\;\,$ de \qquad\qquad\qquad\qquad de 20XX
+Fuenlabrada, a \qquad$\;\,$ de \qquad\qquad\qquad\qquad de 20CE
 \end{flushright}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -235,23 +235,23 @@ Este Trabajo Fin de Grado nace de la asignatura Protocolos para la Transmisión d
 \section{Objetivo general}
 \label{sec:objetivo-general}
 
-El objetivo de mi trabajo de fin de grado es crear una herramienta de uso didáctico sobre RTP en la que, con diferentes niveles de complejidad, se pueda enviar tráfico RTP con los parámetros que el usuario quiera definir. De esta manera se puede analizar el comportamiento del protocolo bajo diferentes escenarios, comprobando su funcionamiento y capacidades.
+El objetivo de este Trabajo de Fin de Grado es crear una biblioteca de envío RTP en Python para su uso didáctico. Esta biblioteca contará con diferentes niveles de complejidad, y permitirá enviar tráfico RTP con los parámetros que el usuario quiera definir. De esta manera se puede analizar el comportamiento del protocolo en diferentes escenarios, comprobando su funcionamiento y capacidades.
 
 El trabajo busca encontrar la manera más amigable y sencilla para el usuario de usar el protocolo RTP para enviar archivos de audio MP3, y ahondar en funciones más complejas según se quiera buscar detalle. Para este propósito he decidido elegir el formato de programa como API.
 
 \section{Objetivos específicos}
 \label{sec:objetivos-especificos}
 
-Para llevar a cabo el objetivo general del trabajo, he tenido que realizar diferentes objetivos específicos que en su conjunto han formado el objetivo final. Se pueden diferenciar diferentes fases, aquí listadas:
+Para llevar a cabo el objetivo general del trabajo, he tenido que realizar diferentes objetivos específicos que en su conjunto han formado el objetivo final. Se pueden diferenciar diferentes fases, listadas a continuación:
 
 \begin{itemize}
-  \item Analizar los protocolos implicados en el programa, estudiando cómo están formados los paquetes RTP y MP3 en su cabecera y payload. Esta fase es necesaria para entender la función y necesidad de cada campo e identificar aquellos que son importantes para poder tratarlos en el programa.
+  \item Analizar los protocolos implicados en el programa, estudiando cómo están formados los paquetes RTP y MP3 en su cabecera y \emph{payload}. Esta fase es necesaria para entender la función y necesidad de cada campo e identificar aquellos que son importantes para poder tratarlos en el programa.
   
   \item Crear una versión inicial del programa donde el objetivo es integrar los protocolos entre ellos para crear paquetes correctamente, basándose en parámetros introducidos por el usuario. Entender e implementar la manera de manejar los bits que componen la cabecera en Python.
   
   \item Implementar funciones según avanza el programa. Dar más accesibilidad según un modelo API e integrar más funciones a la hora de la utilización añadiendo campos de la cabecera modificables por el usuario.
 
-  \item Verificar el programa con alumnos. Se les ha dado a probar a los alumnos de la asignatura de Protocolos para la transmisión de audio y video en Internet la posibilidad de probar el programa. Con los resultados y sus opiniones ha sido posible mejorar el programa.
+  \item Verificar el programa con alumnos. Se les ha dado a probar a los alumnos de la asignatura de Protocolos para la transmisión de audio y vídeo en Internet la posibilidad de probar el programa. Con los resultados y sus opiniones ha sido posible mejorar el programa.
 
   \item Mejorar el programa implementando funciones más sencillas para su uso en función de las pruebas con los alumnos y corregir errores detectados en estas pruebas.
   
@@ -260,7 +260,7 @@ Para llevar a cabo el objetivo general del trabajo, he tenido que realizar difer
 \section{Planificación temporal}
 \label{sec:planificacion-temporal}
 
-Este trabajo de fin de grado empieza en julio de 2019 al plantearse una idea inicial y sus objetivos. Entre agosto y septiembre hago los fines de semana un trabajo de investigación sobre los protocolos y un planteamiento inicial de como plasmar la idea en un programa en Python. También llevo a cabo una busqueda de programas con un objetivo similar al mío pero sin resultados satisfactorios, por lo que procedo a buscar librerías que puedan ayudarme a empezar. La razón de no dedicar más tiempo en estos momentos es por trabajo.
+Este trabajo de fin de grado empieza en julio de 2019 al plantearse una idea inicial y sus objetivos. Entre agosto y septiembre hago los fines de semana un trabajo de investigación sobre los protocolos y un planteamiento inicial de como plasmar la idea en un programa en Python. También llevo a cabo una búsqueda de programas con un objetivo similar al mío pero sin resultados satisfactorios, por lo que procedo a buscar librerías que puedan ayudarme a empezar. La razón de no dedicar más tiempo en estos momentos es por trabajo.
 
 Entre octubre y noviembre desarrollo el programa partiendo de una situación inicial con todos los datos recabados anteriormente.  Al no haber encontrado programas con objetivos parecidos se hace más complicado el desarrollo al tener que escribir todas las funciones del programa sin base previa. En estos dos meses me encuentro con el tutor Gregorio Robles varias veces para revisar el avance y dirigir el programa hacia el objetivo final.
 
@@ -283,7 +283,7 @@ Entre enero y febrero acabo de pulir y eliminar errores del programa y escribo l
 
 \section{Python}
 \label{sec:python}
-Python es un lenguaje de programación interpretado cuya filosofía hace hincapié en la legibilidad de su código, creado a finales de los ochenta? por Guido van Rossum.  Es un lenguaje de programación multiparadigma, lo que significa que la programación puede ser orientada a objetos, imperativa o funcional. Es un lenguaje donde se hace incapié en la legibilidad del código y en la sencillez, usando palabras donde otros lenguajes usan símbolos y utilizando indentación para diferenciar los diferentes bloques de código que incluyen clases, funciones, bucles o condiciones entre otras cosas.
+Python es un lenguaje de programación interpretado cuya filosofía hace hincapié en la legibilidad de su código, creado a finales de la década de los ochenta del siglo pasado por Guido van Rossum.  Es un lenguaje de programación multiparadigma, lo que significa que la programación puede ser orientada a objetos, imperativa o funcional. Es un lenguaje donde se hace hincapié en la legibilidad del código y en la sencillez, usando palabras donde otros lenguajes usan símbolos y utilizando \emph{indentación} para diferenciar los diferentes bloques de código que incluyen clases, funciones, bucles o condiciones entre otras cosas.
 
 Tiene principios que al cumplirlos el código se considera "pythoniano", entre los cuales destaco:
 \begin{itemize}
@@ -299,11 +299,11 @@ Tiene principios que al cumplirlos el código se considera "pythoniano", entre lo
 
 \section{RTP}
 \label{sec:arteRTP}
-RTP o Real-time Transport Protocol es un protocolo a nivel de aplicación del modelo OSI utilizado para la transmisión de información audiovisual en tiempo real y end-to-end, descrito en la RFC 1889 como estándar en el año 1996 y actualizado en la RFC 3550 en 2003. Se usa principalmente junto al protocolo UDP de la capa de transporte del modelo OSI, que entre sus características no retransmite paquetes ni cuenta con control de flujo ni de aceptación, siendo un protocolo ideal para las aplicaciones el tiempo real al buscar la velocidad sin preocuparse de la fiabilidad. En las aplicaciones de streaming multimedia en tiempo real la pérdida de paquetes es tolerable debido a que la pérdida de un paquete en un paquete de audio es imperceptible con la ayuda de algoritmos para la corrección de fallos.
+RTP o Real-time Transport Protocol es un protocolo a nivel de aplicación del modelo OSI utilizado para la transmisión de información audiovisual en tiempo real y end-to-end, descrito en la RFC 1889 como estándar en el año 1996 y actualizado en la RFC 3550 en 2003. Se usa principalmente junto al protocolo UDP de la capa de transporte del modelo OSI, que entre sus características no retransmite paquetes ni cuenta con control de flujo ni de aceptación, siendo un protocolo ideal para las aplicaciones el tiempo real al buscar la velocidad sin preocuparse de la fiabilidad. En las aplicaciones de \emph{streaming} multimedia en tiempo real la pérdida de paquetes es tolerable debido a que la pérdida de un paquete en un paquete de audio es imperceptible con la ayuda de algoritmos para la corrección de fallos.
 
-Una de las características de RTP es la de permitir diferentes formatos multimedia y permitir nuevos formatos sin tener que modificar el protocolo gracias a los perfiles y formatos de payload. 
+Una de las características de RTP es la de permitir diferentes formatos multimedia y permitir nuevos formatos sin tener que modificar el protocolo gracias a los perfiles y formatos de \emph{payload}. 
 
-RTP funciona junto a un protocolo asociado a este llamado RTCP o Real-time Transport Control Protocol. Este se usa para enviar períodicamente información de control y parámetros de QoS o calidad de servicio y para sincronizar la sincronización entre las fuentes de flujos multimedia. RTCP consume poco ancho de banda comparado a RTP, alrededor de un 5\%.
+RTP funciona junto a un protocolo asociado a este llamado RTCP o Real-time Transport Control Protocol. Este se usa para enviar periódicamente información de control y parámetros de QoS o calidad de servicio y para sincronizar la sincronización entre las fuentes de flujos multimedia. RTCP consume poco ancho de banda comparado a RTP, alrededor de un 5\%.
 
 \includegraphics{img/rtp-header}
 
@@ -314,9 +314,11 @@ Si bien este proyecto se centra en RTP y sus funcionalidades, caben destacar dos
 
 Las sesiones RTP donde se encuentran los flujos multimedia se inicializan mediante un protocolo de señalización. Entre ellos se encuentra SIP o Session Initiation Protocol que a su vez puede utilizar SDP o Session Description Protocol.
 
-SIP (RFC 3261) es un protocolo utilizado para iniciar, mantener y finalizar sesiones multimedia en tiempo real. Es un protocolo basado en texto que comparte elementos de HTML y SMTP. Los diferentes end-points que utilizan SIP para comunicarse se llaman User Agents o UA, y actuan como UA Client al hacer una petición o como UA Server al responder a una petición. Otros agentes que actuan en la comunicación SIP son los Proxy Server, que actuan como intermediario y pueden hacer funciones de routing o seguridad, y los Registrar, que aceptan peticiones Register de los UA para mantener información sobre este incluyendo su dirección.
+SIP (RFC 3261) es un protocolo utilizado para iniciar, mantener y finalizar sesiones multimedia en tiempo real. Es un protocolo basado en texto que comparte elementos de HTML y SMTP. Los diferentes end-points que utilizan SIP para comunicarse se llaman User Agents o UA, y actúan como UA Client al hacer una petición o como UA Server al responder a una petición. Otros agentes que actúan en la comunicación SIP son los Proxy Server, que actúan como intermediario y pueden hacer funciones de \emph{routing} o seguridad, y los Registrar, que aceptan peticiones \texttt{REGISTER} de los UA para mantener información sobre este incluyendo su dirección.
 
 SDP (RFC 4566) es un formato para describir parámetros de sesión en una comunicación multimedia en tiempo real. Entre sus funciones se encuentran los anuncios e invitaciones de sesiones y la negociación de parámetros entre los end-points, que juntos forman el perfil de la sesión. Al igual que SIP, está diseñado para soportar nuevos formatos sin cambiar el formato.
+
+FIXME: falta referencia (URL)
 
 \section {MP3}
 \label {sec:mp3}
@@ -325,26 +327,32 @@ MP3 o MPEG-1 Audio Layer III es un estándar de comprensión de audio definido en 
 
 Dentro de esta estándar los ficheros de audio pueden tener diferente velocidad de bit rate (kbits/s) y de velocidad de muestreo (Hz). Ambos parámetros se definen en la cabecera del paquete MP3.
 
+ FIXME: falta referencia (URL)
+ 
  
 \section {Bitstring}
 \label {sec:bitstring}
 
-Bitstring es una librería de Python diseñada para facilitar el análisis y procesado de datos en formato binario.
+\texttt{Bitstring} es una biblioteca de Python diseñada para facilitar el análisis y procesado de datos en formato binario.
 
-Bitstring define un objeto que se puede construir con variables con una gran variedad de tipos, desde integer big y little endian hasta string, hexadecimal, byte y un proprio binario. 
+\texttt{Bitstring} define un objeto que se puede construir con variables con una gran variedad de tipos, desde integer big y little endian hasta string, hexadecimal, byte y un proprio binario. 
 
-Los objetos bitstring tienen diferentes funciones para unir, truncar, adjuntar y escribir el propio objeto y así modificar su contenido en bits. Estos objetos se pueden leer, buscar y reemplazar para poder tratarlos.
+Los objetos \texttt{Bitstring} tienen diferentes funciones para unir, truncar, adjuntar y escribir el propio objeto y así modificar su contenido en bits. Estos objetos se pueden leer, buscar y reemplazar para poder tratarlos.
 
 Todas estas características han resultado útiles para la lectura, manejo y creación de cabeceras en formato binario, tanto para las de RTP como para las de MP3.
 
-\section {Wireshark}
-\label {sec:wireshark}
+FIXME: falta referencia (URL)
+
+\section{Wireshark}
+\label{sec:wireshark}
 
 Wireshark es un analizador de protocolos de red que permite analizar a muy bajo nivel todos los paquetes que pasan por la red, disponible para una gran cantidad de plataformas.
 
 Tiene integrados una gran cantidad de protocolos en continuo aumento que permite detectarlos y analizar sus cabeceras y permite capturar tráfico en tiempo real o analizar capturas guardadas para un análisis posterior. También analiza exhaustivamente tráfico de VoIP (Voice over IP). Puede filtrar el tráfico en base a protocolos o a parámetros decididos por el usuario para tener una captura limpia solo con el tráfico que interesa.
 
 Todas estas características son interesantes y han ayudado mucho a comprobar el funcionamiento del programa al poder ver en detalle los paquetes RTP enviados y sus cabeceras, comprobando que todos los campos que el usuario indicaba al llamar a las funciones se veían reflejados en tráfico real.
+
+FIXME: falta referencia (URL)
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -357,13 +365,17 @@ Todas estas características son interesantes y han ayudado mucho a comprobar el 
 \section{Arquitectura general} 
 \label{sec:arquitectura}
 
-El programa está desarrollado en un modelo API, lo que significa que sirve para dar funciones y procedimientos a otro software sin que este se tenga que preocupar del funcionamiento interno de las funciones utilizadas. Esta capa de abstracción hace que el uso sea más fácil para el usuario. En el caso de SimpleRTP, se ofrecen diferentes niveles de abstracción con el objetivo de poder profundizar en las opciones del programa.
+El programa está desarrollado como una biblioteca ofreciendo una API, lo que significa que sirve para dar funciones y procedimientos a otro software sin que este se tenga que preocupar del funcionamiento interno de las funciones utilizadas. Esta capa de abstracción hace que el uso sea más fácil para el usuario. En el caso de SimpleRTP, se ofrecen diferentes niveles de abstracción con el objetivo de poder profundizar en las opciones del programa.
 
 El programa cliente emisor debe importar la librería SimpleRTP para poder abrir una conexión UDP y enviar paquetes RTP, mientras que un posible programa receptor que escuche en el puerto objetivo no necesita importarla.
 
-A continuación se muestra un diagrama del funcionamiento del programa con los diferentes agentes que participan en el proceso del envío de paquetes:
+En la figura~\ref{fig:flowchart}, se muestra un diagrama del funcionamiento del programa con los diferentes agentes que participan en el proceso del envío de paquetes.
 
-\includegraphics{img/flowchart}
+\begin{figure}[h]
+\includegraphics{img/diagrama-flowchart}
+\caption{FIXME: aquí viene una breve descripción de la figura}
+\label{fig:flowchart}
+\end{figure}
 
 
 \section{SimpleRTP}
@@ -373,9 +385,14 @@ A continuación se muestra un diagrama del funcionamiento del programa con los di
 \subsection{RtpHeader}
 \label{sec:rtpheader}
 
-El componente fundamental de este programa es la clase RtpHeader. Un objeto RtpHeader contiene todos los valores que forman una cabecera RTP y es indispensable crear un objeto para el envío de paquetes RTP. Tiene varias funciones con diversos propósitos que se detallarán a continuación. El diagrama que representa el flujo de funcionamiento de la clase es el siguiente:
+El componente fundamental de este programa es la clase RtpHeader. Un objeto RtpHeader contiene todos los valores que forman una cabecera RTP y es indispensable crear un objeto para el envío de paquetes RTP. Tiene varias funciones con diversos propósitos que se detallarán a continuación. El diagrama que representa el flujo de funcionamiento de la clase se puede observar en la Figura~\ref{fig:rtpheader}.
 
+\begin{figure}[h]
 \includegraphics{img/diagrama-rtpheader}
+\caption{FIXME: aquí viene una breve descripción de la figura}
+\label{fig:rtpheader}
+\end{figure}
+
 
 \subsubsection{Init}
 
@@ -408,14 +425,14 @@ def set_header(self, version=2, pad_flag=0, ext_flag=0, cc=0, marker=0, payload_
         self.csrc = BitArray()
 \end{verbatim}
 
-Todos los valores que se pasen a set header se guardan en variables dentro del objeto. Cada variable es un campo de la cabecera RTP y se guardan con un tipo BitArray. Este tipo se importa de la biblioteca bitstring y pasado un valor de tipo integer y la longitud en bits se genera un número binario con ciertas características que le da el ser del tipo BitArray, entre ellas operaciones y poder unirse o separarse con otros BitArray.
+Todos los valores que se pasen a set header se guardan en variables dentro del objeto. Cada variable es un campo de la cabecera RTP y se guardan con un tipo BitArray. Este tipo se importa de la biblioteca \texttt{Bitstring} y pasado un valor de tipo integer y la longitud en bits se genera un número binario con ciertas características que le da el ser del tipo BitArray, entre ellas operaciones y poder unirse o separarse con otros BitArray.
 
 \subsubsection {Funciones específicas}
 
 A continuación las funciones específicas que modifican un solo campo de la cabecera RTP y se pueden invocar desde el cliente:
 
 \begin{verbatim}
-def setVersion(self, version):
+    def setVersion(self, version):
         self.version = BitArray(uint = version, length = 2)
 
     def setPaddingFlag(self, pad_flag):
@@ -438,7 +455,7 @@ La unica función algo diferente es la que guarda el valor de los identificadores
 
 \subsubsection{Next}
 
-Esta función no se recomienda invocar por el usuario. Se invoca automáticamente cada vez que se envía un paquete RTP y aumenta el valor del número de secuencia en 1 y el valor del timestamp en función del tiempo de duración de un frame MP3 en milisegundos.
+Esta función no se recomienda ser invocada por el usuario, y por eso su nombre empieza con un guión bajo tal y como es práctica común en Python (un lenguaje de programación que carece de métodos privados). Se invoca automáticamente cada vez que se envía un paquete RTP y aumenta el valor del número de secuencia en 1 y el valor del timestamp en función del tiempo de duración de un frame MP3 en milisegundos.
 
 \begin{verbatim}
 
@@ -452,11 +469,17 @@ def _next(self, frameTimeMs):
 \subsection{RtpPayloadMP3}
 \label{sec:rtppayloadmp3}
 
-Una vez tenemos en un objeto todo lo necesario para formar la cabecera de un paquete RTP, el siguiente paso es el payload o la carga útil del paquete. Aquí es donde se encuentra el paquete MP3. Un fichero MP3 es una sucesión continua de paquetes por lo que es necesario localizar la cabecera de cada paquete y analizarla para ver sus cualidades como el tiempo de muestreo o los bits por segundo.
+Una vez tenemos en un objeto todo lo necesario para formar la cabecera de un paquete RTP, el siguiente paso es el \emph{payload} o la carga útil del paquete. Aquí es donde se encuentra el paquete MP3. Un fichero MP3 es una sucesión continua de paquetes por lo que es necesario localizar la cabecera de cada paquete y analizarla para ver sus cualidades como el tiempo de muestreo o los bits por segundo.
 
-La clase RtpPayloadMP3 tiene dos funciones. La primera, init, es la que se llama al crear un objeto de la clase y la segunda, llamada \_take\_mp3\_frame es la encargada de analizar el paquete. El diagrama que representa el flujo de funcionamiento de la clase es el siguiente:
+La clase RtpPayloadMP3 tiene dos funciones. La primera, init, es la que se llama al crear un objeto de la clase y la segunda, llamada \_take\_mp3\_frame es la encargada de analizar el paquete. El diagrama que representa el flujo de funcionamiento de la clase es el que se puede ver en la Figura~\ref{fig:payload}.
 
-\includegraphics{img/diagrama-mp3payload}
+\begin{figure}[h]
+\includegraphics[width=17cm]{img/diagrama-mp3payload}
+\caption{FIXME: aquí viene una breve descripción de la figura}
+\label{fig:payload}
+\end{figure}
+
+
 
 \subsubsection{init}
 Al crear un objeto se llama a la función Init. El objetivo de esta función es manejar el fichero de audio MP3 que se le pasa, pasarlo a binario y encontrar el inicio de la primera cabecera:
@@ -467,9 +490,9 @@ def __init__(self, file_path):
             bytes = file.read()
             self.bits = BitArray(bytes).bin
             self.header_index = self.bits.find('11111111111')
-\end{verbatin}
+\end{verbatim}
 
-El fichero se pasa a binario para poder trocearlo en paquetes e indexar el inicio de cada uno para pasarlos como subarrays del fichero. El inicio de la cabecera se encuentra buscando la secuencia de once '1's seguidos y se guarda el índice donde empieza esta serie de números en una variable. Más adelante se comprueba que estos forman parte de la cabecera y no del payload.
+El fichero se pasa a binario para poder trocearlo en paquetes e indexar el inicio de cada uno para pasarlos como subarrays del fichero. El inicio de la cabecera se encuentra buscando la secuencia de once '1's seguidos y se guarda el índice donde empieza esta serie de números en una variable. Más adelante se comprueba que estos forman parte de la cabecera y no del \emph{payload}.
 
 \subsubsection{\_take\_mp3\_frame}
 
@@ -498,18 +521,106 @@ A continuación una parte de la función donde se ven los últimos pasos:
 
 La función send\_rtp\_packet es la encargada de juntar las diferentes partes que componen el paquete RTP completo y enviar el paquete mediante un socket UDP. En esta función es donde se define el número de paquetes RTP que se quieren enviar y la cantidad de paquetes MP3 en cada paquete RTP.
 
-El diagrama que representa el flujo de funcionamiento de la función es el siguiente:
+El diagrama que representa el flujo de funcionamiento de la función se muestra en la Figura~\ref{fig:sendpacket}.
 
-\includegraphics{img/diagrama-sendpacket}
+\begin{figure}[h]
+\includegraphics[width=17cm]{img/diagrama-sendpacket}
+\caption{FIXME: aquí viene una breve descripción de la figura}
+\label{fig:sendpacket}
+\end{figure}
 
-Tras abrir el socket UDP con la dirección indicada, se empiezan a enviar paquetes RTP en bucle. El paquete que se envía se forma juntando los diferentes campos que contiene el objeto RtpHeader en orden y tras esto se juntan al final el número de paquetes MP3 indicados, que forman el payload del paquete final. Cada vez que se añade un paquete MP3 se llama a la función \_take\_mp3\_frame que es la encargada de identificar el siguiente paquete. 
+
+Tras abrir el socket UDP con la dirección indicada, se empiezan a enviar paquetes RTP en bucle. El paquete que se envía se forma juntando los diferentes campos que contiene el objeto RtpHeader en orden y tras esto se juntan al final el número de paquetes MP3 indicados, que forman el \emph{payload} del paquete final. Cada vez que se añade un paquete MP3 se llama a la función \_take\_mp3\_frame que es la encargada de identificar el siguiente paquete. 
 
 Una vez formado el paquete se convierte a bytes y se envía. Después se aumentan los valores de número de secuencia y timestamp RTP para prepararse para enviar el siguiente paquete.
 
 \section{Programa cliente}
 \label{sec:programa-cliente}
 
+<<<<<<< HEAD
 Todo lo relativo al programa cliente lo he incluido en el capítulo \ref{app:manual}. Ahí se explica como utilizar SimpleRTP desde el punto de vista del cliente de diferentes formas según sea el objetivo. Todas las referencias a los niveles de abstracción en esta memoria se refieren a los niveles de abstracción del programa cliente que se pueden ver en el manual de usuario.
+=======
+El programa cliente puede tener cualquier propósito y diferentes implementaciones. Para el uso de SimpleRTP es necesario importar la biblioteca.
+
+Existen diferentes niveles de abstracción, desde el nivel más abstracto en el que no es necesario indicar nada sobre el protocolo RTP y solo hay que pasar un fichero MP3, hasta el nivel donde podemos elegir todos los campos de la cabecera RTP, el tamaño del \emph{payload} del paquete y la cantidad de paquetes que queremos enviar.
+
+\subsection{Mayor nivel de abstracción}
+\label {sec:mayor-abs}
+
+Un ejemplo de uso de SimpleRTP con el mayor nivel de abstracción es el siguiente:
+
+\begin{verbatim}
+     cabeceraRTP = simplertp.RtpHeader()
+     audio = simplertp.RtpPayloadMp3('fichero.mp3')
+
+     ip = '127.0.0.1'
+     port = 33332
+
+     simplertp.send_rtp_packet(cabeceraRTP, audio, ip, port)
+\end{verbatim}
+
+
+La primera línea crea una variable que contiene un objeto RtpHeader. Crear un objeto sin pasar ningún parámetro deja la cabecera con valores por defecto.
+
+En la segunda también tenemos una variable que contiene un objeto, en este caso de la clase RtpPayloadMp3. Para crear este objeto es necesario pasar el path donde se encuentra el fichero a enviar.
+
+Las siguientes dos líneas son variables para indicar IP y puerto de destino donde se abrirá el socket UDP, por lo que no dependen directamente de SimpleRTP y simplemente se podrían incluir sus valores en la siguiente línea.
+
+La última línea es donde se envían los paquetes. La función\begin{verbatim} send_rtp_packet \end{verbatim}necesita mínimo todos los argumentos que hemos definido anteriormente: una objeto RtpHeader, un objeto RtpPayloadMp3 y una IP y puerto destino. Sin más argumentos opcionales, el tamaño de \emph{payload} y el número de paquetes enviados toma un valor por defecto.
+
+\subsection{Nivel medio de abstracción}
+\label{sec:media-abs}
+
+Entrando algo en detalle se pueden empezar a modificar campos de la cabecera RTP y el tamaño de los paquetes:
+
+\begin{verbatim}
+     csrc = [2000, 3000, 4000, 5000]
+     cabeceraRTP = simplertp.RtpHeader(cc=len(csrc))
+     cabeceraRTP.setCSRC(csrc)
+
+     audio = simplertp.RtpPayloadMp3('archivo.mp3')
+
+     numeroPaquetesRTP = 0
+     paquetesMP3porRTP = 2
+
+     ip = '127.0.0.1'
+     port = 33332
+
+     simplertp.send_rtp_packet(cabeceraRTP, audio, ip, port, paquetesMP3porRTP, numeroPaquetesRTP)
+
+\end{verbatim}
+
+En este caso al crear el objeto RtpHeader pasamos un argumento, el de la cuenta de número de fuentes contribuyentes. Se pueden pasar todos los argumentos que se quieran al crear el objeto dentro de los que existen, representando cada uno a un campo de la cabecera RTP.  Cuando creamos el objeto, todos los argumentos que no se pasen toman valores por defecto.
+
+Otra manera de definir campos de la cabecera es mediante funciones específicas para cada campo como setCSRC que define los identificadores de cada fuente contribuyente.
+
+En la llamada a sendrtppacket se pasan dos nuevos argumentos, paquetesMP3porRTP y numeroPaquetesRTP. Esto permite elegir el número de paquetes MP3 que contiene un solo paquete RTP aumentando así el tamaño del \emph{payload} RTP. El segundo argumento nos permite elegir cuantos paquetes RTP queremos enviar con la llamada. Esto permite no enviar todo el archivo y cambiar parámetros RTP y enviar más paquetes después si así se desea.
+
+
+\subsection{Menor nivel de abstracción}
+\label{sec:menor-abs}
+
+En el menor nivel de abstracción que ofrece SimpleRTP podemos modificar todos los campos de la cabecera RTP junto al tamaño del \emph{payload} del paquete y los paquetes enviados.
+
+\begin{verbatim}
+
+    cabeceraRTP = simplertp.RtpHeader()
+    csrc = [2000, 3000, 4000, 5000]
+    cabeceraRTP.set_header(version=2, pad_flag=0, ext_flag=0, cc=4, marker=0, \emph{payload}_type=14, ssrc=1000)
+    cabeceraRTP.setCSRC(csrc)
+    audio = simplertp.RtpPayloadMp3('archivo.mp3')
+    numeroPaquetesRTP = 0
+    paquetesMP3porRTP = 2
+    ip = '127.0.0.1'
+    port = 33332
+    simplertp.send_rtp_packet(cabeceraRTP, audio, ip, port, paquetesMP3porRTP, numeroPaquetesRTP)
+
+\end{verbatim}
+
+En este ejemplo se usa una nueva función llamada setheader. Esta función pertenece al objeto RtpHeader y permite cambiar en una línea todos los campos de la cabecera. Siguen estando las funciones para cambiar solamente campos específicos. 
+
+En este nivel por lo tanto se pueden modificar todos los campos de la cabecera RTP de diferentes maneras y controlar el tamaño del \emph{payload} y el número de paquetes.
+>>>>>>> ee8101cb92b2e988459c43054909f65fe216b645
 
 
 
@@ -524,16 +635,16 @@ Todo lo relativo al programa cliente lo he incluido en el capítulo \ref{app:manu
 \section{Resultados en Wireshark}
 \label{sec:reswireshark}
 
-El objetivo de SimpleRTP es el envío de paquetes RTP. Para comprobar que los paquetes se envian correctamente me ha ayudado la herramiente Wireshark. Con Wireshark es posible analizar los paquetes RTP en profundidad y comprobar que se ha formado el paquete correctamente con todos los campos correspondientes.
+El objetivo de SimpleRTP es el envío de paquetes RTP. Para comprobar que los paquetes se envian correctamente me ha ayudado la herramiente \texttt{Wireshark}. Con \texttt{Wireshark} es posible analizar los paquetes RTP en profundidad y comprobar que se ha formado el paquete correctamente con todos los campos correspondientes.
 
 La primera prueba para verificar los resultados la realizo usando SimpleRTP de la manera más simple posible, utilizando el ejemplo de mayor nivel de abstracción de los apartados anteriores. Podemos ver el resultado en la figura \ref{fig:wireshark-1}.
 
-Se puede observar que el primer paquete RTP tiene un número de secuencia y timestamp que no empiezan en 0, y que en cada paquete aumentan sus valores. Todos los paquetes tienen el mismo tamaño, ya que todos tienen en su payload el mismo número de paquetes MP3 y las cabeceras son iguales.
+Se puede observar que el primer paquete RTP tiene un número de secuencia y timestamp que no empiezan en 0, y que en cada paquete aumentan sus valores. Todos los paquetes tienen el mismo tamaño, ya que todos tienen en su \emph{payload} el mismo número de paquetes MP3 y las cabeceras son iguales.
 
 \begin{figure}
   \centering
   \includegraphics[width=16cm, keepaspectratio]{img/wireshark-1}
-  \caption{Envío de paquetes RTP en Wireshark.}
+  \caption{Envío de paquetes RTP en \texttt{Wireshark}.}
   \label{fig:wireshark-1}
 \end{figure}
 
@@ -549,8 +660,8 @@ Al enviar paquetes de esta manera, los valores que toma la cabecera son todos po
     ssrc = 1000
 \end{verbatim}
 
-Podemos comprobar al analizar la cabecera RTP del paquete en Wireshark que todos los valores son correctos en la figura \ref{fig:wireshark-2}. Un primer indicio de que todo ha ido bien es que el propio Wireshark reconoce el protocolo RTP, por lo que el paquete parece estar bien formado.
-También se puede observar el tamaño del paquete. Este tamaño depende del payload y en este caso son 2 paquetes MP3 por RTp, que es el valor por defecto ya que no hemos indicado nada.
+Podemos comprobar al analizar la cabecera RTP del paquete en \texttt{Wireshark} que todos los valores son correctos en la figura \ref{fig:wireshark-2}. Un primer indicio de que todo ha ido bien es que el propio \texttt{Wireshark} reconoce el protocolo RTP, por lo que el paquete parece estar bien formado.
+También se puede observar el tamaño del paquete. Este tamaño depende del \emph{payload} y en este caso son 2 paquetes MP3 por RTP, que es el valor por defecto ya que no hemos indicado nada.
 
 \begin{figure}
   \centering
@@ -575,11 +686,11 @@ El siguiente paso es poner a prueba el programa enviando paquetes usando el ejem
   \label{fig:wireshark-4}
 \end{figure}
 
-Lo primero que se puede notar es que el tamaño de los paquetes ha cambiado. Esto no se debe solo al mayor payload, al haber 3 paquetes MP3 encapsulados en vez de 2, si no también a la inclusión de 4 CSRCs en la cabecera RTP que no estaban antes. Cada ID de un CSRC ocupa 32 bits o 4 bytes más en la cabecera.
+Lo primero que se puede notar es que el tamaño de los paquetes ha cambiado. Esto no se debe solo al mayor \emph{payload}, al haber 3 paquetes MP3 encapsulados en vez de 2, si no también a la inclusión de 4 CSRCs en la cabecera RTP que no estaban antes. Cada ID de un CSRC ocupa 32 bits o 4 bytes más en la cabecera.
 
 En el detalle de la cabecera RTP, casi todos los campos siguen tomando los valores por defecto, menos el CC (ya que al final es la cantidad de CSRCs presentes en la cabecera) y los nuevos CSRCs. Podemos comprobar que todos los valores son correctos, ya que o son los indicados por el programa cliente o son los valores tomados por defecto. Los valores que toman los CSRCs se muestran en hexadecimal, pero son correctos al corresponderse a 2000, 3000, 4000 y 5000 en decimal respectivamente.
 
-Otra prueba es cambiando más campos a la cabecera RTP pasando valor a todos los campos, como en el ejemplo de menor nivel de abstracción, pero dejando algunos valores iguales que los de por defecto. Este último cambio lo hago en el último ejemplo ya que asignar valores sin sentido a los campos de la cabecera provocará errores. En la figura \ref{fig:wireshark-5} podemos ver la cabecera con más cambios y con otro tamaño de paquete para comprobar los cambios de tamaño de payload, habiendo ahora un paquete MP3 encapsulado.
+Otra prueba es cambiando más campos a la cabecera RTP pasando valor a todos los campos, como en el ejemplo de menor nivel de abstracción, pero dejando algunos valores iguales que los de por defecto. Este último cambio lo hago en el último ejemplo ya que asignar valores sin sentido a los campos de la cabecera provocará errores. En la figura \ref{fig:wireshark-5} podemos ver la cabecera con más cambios y con otro tamaño de paquete para comprobar los cambios de tamaño de \emph{payload}, habiendo ahora un paquete MP3 encapsulado.
 
 \begin{figure}
   \centering
@@ -588,7 +699,7 @@ Otra prueba es cambiando más campos a la cabecera RTP pasando valor a todos los 
   \label{fig:wireshark-5}
 \end{figure}
 
-En esta captura se comprueba que todo sigue funcionando correctamente con los nuevos valores que hemos indicado. A continuación una última prueba en la que cambiamos todos los campos indiscriminadamente, sin atender realmente al significado que puede tener un 0 o un 1 en los indicadores de extensión o padding. El unico campo que no voy a cambiar para estos ejemplos es el de versión, porque Wireshark deja de reconocer el protocolo del paquete como RTP y no podemos analizar las cabeceras. El resultado de esta ejecución se ve en la figura \ref{fig:wireshark-6}.
+En esta captura se comprueba que todo sigue funcionando correctamente con los nuevos valores que hemos indicado. A continuación una última prueba en la que cambiamos todos los campos indiscriminadamente, sin atender realmente al significado que puede tener un 0 o un 1 en los indicadores de extensión o padding. El unico campo que no voy a cambiar para estos ejemplos es el de versión, porque 	exttt{Wireshark} deja de reconocer el protocolo del paquete como RTP y no podemos analizar las cabeceras. El resultado de esta ejecución se ve en la figura \ref{fig:wireshark-6}.
 
 \begin{figure}
   \centering
@@ -597,7 +708,7 @@ En esta captura se comprueba que todo sigue funcionando correctamente con los nu
   \label{fig:wireshark-6}
 \end{figure}
 
-En esta prueba podemos ver el problema desde el primer momento al indicar Wireshark que el paquete está mal formado. Sigue reconociendolo como un paquete RTP al no haber tocado la versión y por esto mismo entiende el resto de campos y concluye que algo hay mal. En este caso el cliente ha decidido indicar que los campos que indican que hay padding y extensión se activan, pero realmente la cabecera no tiene estos campos. Este ejemplo sirve para demostrar que se pueden provocar errores intencionadamente con SimpleRTP para ver como estos paquetes mal formados se comportan en la red.
+En esta prueba podemos ver el problema desde el primer momento al indicar \texttt{Wireshark} que el paquete está mal formado. Sigue reconociendolo como un paquete RTP al no haber tocado la versión y por esto mismo entiende el resto de campos y concluye que algo hay mal. En este caso el cliente ha decidido indicar que los campos que indican que hay padding y extensión se activan, pero realmente la cabecera no tiene estos campos. Este ejemplo sirve para demostrar que se pueden provocar errores intencionadamente con SimpleRTP para ver como estos paquetes mal formados se comportan en la red.
 
 
 \section{Pruebas con alumnos}
@@ -618,7 +729,7 @@ Se puede ver el uso de SimpleRTP junto al otro método en la figura \ref{fig:uacl
 \end{figure}
 
 
-Aún con los fallos que puedo encontrar esta alumna, el envío de paquetes RTP mediante este programa fue satisfactorio, como se puede observar en una captura en Wireshark donde se aprecia un paquete con los parámetros que indicó usando las funciones de la biblioteca SimpleRTP.
+Aún con los fallos que puedo encontrar esta alumna, el envío de paquetes RTP mediante este programa fue satisfactorio, como se puede observar en una captura en \texttt{Wireshark} donde se aprecia un paquete con los parámetros que indicó usando las funciones de la biblioteca SimpleRTP.
 
 \begin{figure}
   \centering
@@ -627,7 +738,7 @@ Aún con los fallos que puedo encontrar esta alumna, el envío de paquetes RTP med
   \label{fig:wiresharkRTP}
 \end{figure}
 
-Por lo tanto, considero que el mayor problema fue entregar el programa con solo funcionalidades de nivel de abstracción bajo y que los alumnos no pudieron interpretar bien el funcionamiento del programa, al combinar el uso de este con el envío de paquetes de otras maneras. En cambio, pude comprobar el correcto funcionamiento de este al ver en la captura de Wireshark el envío de paquetes RTP mediante las funciones de SimpleRTP.
+Por lo tanto, considero que el mayor problema fue entregar el programa con solo funcionalidades de nivel de abstracción bajo y que los alumnos no pudieron interpretar bien el funcionamiento del programa, al combinar el uso de este con el envío de paquetes de otras maneras. En cambio, pude comprobar el correcto funcionamiento de este al ver en la captura de \texttt{Wireshark} el envío de paquetes RTP mediante las funciones de SimpleRTP.
 
 
 
