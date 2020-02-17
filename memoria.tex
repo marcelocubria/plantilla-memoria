@@ -220,6 +220,8 @@ As it is the translation of the ``Resumen'', which is supposed to be written at 
 \label{sec:intro} % etiqueta para poder referenciar luego en el texto con ~\ref{sec:intro}
 \pagenumbering{arabic} % para empezar la numeración de página con números
 
+Este Trabajo Fin de Grado nace de la asignatura Protocolos para la Transmisión de Audio y Video en Internet (PTAVI) y la necesidad que había, para la p
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -504,90 +506,10 @@ Tras abrir el socket UDP con la dirección indicada, se empiezan a enviar paquete
 
 Una vez formado el paquete se convierte a bytes y se envía. Después se aumentan los valores de número de secuencia y timestamp RTP para prepararse para enviar el siguiente paquete.
 
-
 \section{Programa cliente}
 \label{sec:programa-cliente}
 
-El programa cliente puede tener cualquier propósito y diferentes implementaciones. Para el uso de SimpleRTP es necesario importar la biblioteca.
-
-Existen diferentes niveles de abstracción, desde el nivel más abstracto en el que no es necesario indicar nada sobre el protocolo RTP y solo hay que pasar un fichero MP3, hasta el nivel donde podemos elegir todos los campos de la cabecera RTP, el tamaño del payload del paquete y la cantidad de paquetes que queremos enviar.
-
-\subsection{Mayor nivel de abstracción}
-\label {sec:mayor-abs}
-
-Un ejemplo de uso de SimpleRTP con el mayor nivel de abstracción es el siguiente:
-
-\begin{verbatim}
-     cabeceraRTP = simplertp.RtpHeader()
-     audio = simplertp.RtpPayloadMp3('fichero.mp3')
-
-     ip = '127.0.0.1'
-     port = 33332
-
-     simplertp.send_rtp_packet(cabeceraRTP, audio, ip, port)
-\end{verbatim}
-
-
-La primera línea crea una variable que contiene un objeto RtpHeader. Crear un objeto sin pasar ningún parámetro deja la cabecera con valores por defecto.
-
-En la segunda también tenemos una variable que contiene un objeto, en este caso de la clase RtpPayloadMp3. Para crear este objeto es necesario pasar el path donde se encuentra el fichero a enviar.
-
-Las siguientes dos líneas son variables para indicar IP y puerto de destino donde se abrirá el socket UDP, por lo que no dependen directamente de SimpleRTP y simplemente se podrían incluir sus valores en la siguiente línea.
-
-La última línea es donde se envían los paquetes. La función\begin{verbatim} send_rtp_packet \end{verbatim}necesita mínimo todos los argumentos que hemos definido anteriormente: una objeto RtpHeader, un objeto RtpPayloadMp3 y una IP y puerto destino. Sin más argumentos opcionales, el tamaño de payload y el número de paquetes enviados toma un valor por defecto.
-
-\subsection{Nivel medio de abstracción}
-\label{sec:media-abs}
-
-Entrando algo en detalle se pueden empezar a modificar campos de la cabecera RTP y el tamaño de los paquetes:
-
-\begin{verbatim}
-     csrc = [2000, 3000, 4000, 5000]
-     cabeceraRTP = simplertp.RtpHeader(cc=len(csrc))
-     cabeceraRTP.setCSRC(csrc)
-
-     audio = simplertp.RtpPayloadMp3('archivo.mp3')
-
-     numeroPaquetesRTP = 0
-     paquetesMP3porRTP = 2
-
-     ip = '127.0.0.1'
-     port = 33332
-
-     simplertp.send_rtp_packet(cabeceraRTP, audio, ip, port, paquetesMP3porRTP, numeroPaquetesRTP)
-
-\end{verbatim}
-
-En este caso al crear el objeto RtpHeader pasamos un argumento, el de la cuenta de número de fuentes contribuyentes. Se pueden pasar todos los argumentos que se quieran al crear el objeto dentro de los que existen, representando cada uno a un campo de la cabecera RTP.  Cuando creamos el objeto, todos los argumentos que no se pasen toman valores por defecto.
-
-Otra manera de definir campos de la cabecera es mediante funciones específicas para cada campo como setCSRC que define los identificadores de cada fuente contribuyente.
-
-En la llamada a sendrtppacket se pasan dos nuevos argumentos, paquetesMP3porRTP y numeroPaquetesRTP. Esto permite elegir el número de paquetes MP3 que contiene un solo paquete RTP aumentando así el tamaño del payload RTP. El segundo argumento nos permite elegir cuantos paquetes RTP queremos enviar con la llamada. Esto permite no enviar todo el archivo y cambiar parámetros RTP y enviar más paquetes después si así se desea.
-
-
-\subsection{Menor nivel de abstracción}
-\label{sec:menor-abs}
-
-En el menor nivel de abstracción que ofrece SimpleRTP podemos modificar todos los campos de la cabecera RTP junto al tamaño del payload del paquete y los paquetes enviados.
-
-\begin{verbatim}
-
-    cabeceraRTP = simplertp.RtpHeader()
-    csrc = [2000, 3000, 4000, 5000]
-    cabeceraRTP.set_header(version=2, pad_flag=0, ext_flag=0, cc=4, marker=0, payload_type=14, ssrc=1000)
-    cabeceraRTP.setCSRC(csrc)
-    audio = simplertp.RtpPayloadMp3('archivo.mp3')
-    numeroPaquetesRTP = 0
-    paquetesMP3porRTP = 2
-    ip = '127.0.0.1'
-    port = 33332
-    simplertp.send_rtp_packet(cabeceraRTP, audio, ip, port, paquetesMP3porRTP, numeroPaquetesRTP)
-
-\end{verbatim}
-
-En este ejemplo se usa una nueva función llamada setheader. Esta función pertenece al objeto RtpHeader y permite cambiar en una línea todos los campos de la cabecera. Siguen estando las funciones para cambiar solamente campos específicos. 
-
-En este nivel por lo tanto se pueden modificar todos los campos de la cabecera RTP de diferentes maneras y controlar el tamaño del payload y el número de paquetes.
+Todo lo relativo al programa cliente lo he incluido en el capítulo \ref{app:manual}. Ahí se explica como utilizar SimpleRTP desde el punto de vista del cliente de diferentes formas según sea el objetivo. Todas las referencias a los niveles de abstracción en esta memoria se refieren a los niveles de abstracción del programa cliente que se pueden ver en el manual de usuario.
 
 
 
@@ -724,7 +646,40 @@ Por lo tanto, considero que el mayor problema fue entregar el programa con solo 
 \section{Consecución de objetivos}
 \label{sec:consecucion-objetivos}
 
+Es importante análizar si se han cumplido los objetivos del trabajo y en qué grado para concluir si se ha llevado a cabo satisfactoriamente. El fin para el que he hecho este programa es para ser usado por un estudiante o una persona que quiera poner a prueba el protocolo RTP para estudiarlo y comprenderlo de mejor manera y, si es posible, que se utilice en la asignatura de PTAVI para sustituir el programa que se estaba utilizando para el envío de RTP, ya que SimpleRTP ofrece mejores funcionalidades a la hora de aprender.
 
+Respecto a este último punto, no será posible ver los verdaderos resultados hasta que se use en la asignatura el próximo curso y que se pueda ver su efectividad real con una mayor base de usuarios. Relacionado con los alumnos está la prueba que se hizo con los de este curso, a los que se les dió la posibilidad opcional de probar el programa en una práctica. Es cierto que esperaba una mayor participación, al haberlo utilizado solo dos alumnos, pero los resultados obtenidos no obstante me han servido de gran ayuda para corregir errores e identificar puntos a mejorar. Por lo tanto podría concluir que, aunque pueda parecer una baja participación, los resultados han sido útiles y considerar satisfactoria la prueba.
+
+Los objetivos intermedios necesarios para llevar a cabo el trabajo han sido, como comenté en el capítulo 2, la adquisición de conocimiento teórico sobre los protocolos a tratar y el planteamiento desde cero de como programar lo que buscaba. Considero que estos objetivos los he llevado a cabo con éxito, ya que para poder enseñar algo y conseguir que se aprenda hay que entenderlo primero, y si la tarea de programación consigue que algo de mayor complejidad se vuelva simple es porque he entendido a fondo como funcionan los diferentes factores involucrados.
+
+Puedo concluir este apartado con que he logrado los objetivos propuestos pero con un rango de mejora que comento más adelante.
+
+\section{Conocimientos aplicados}
+\label{sec:conocimientos-aplicados}
+
+Para llevar a cabo el programa SimpleRTP me han sido de gran ayuda varias asignaturas del Grado en Ingeniería en Sistemas Audiovisuales y Multimedia, que me han aportado el conocimienton necesario para poder plantear y desarrollar el programa y para solventar los problemas que hayan podido surgir durante el trascurso.
+
+Sin duda la asignatura fundamental sobre la que se basa este trabajo es la asignatura Protocolos para la Transmisión de Audio y Video en Internet. Con esta asignatura conocí el protocolo RTP y los asociados como SIP y SDP, base del programa que he desarrollado y donde más he profundizado. Otro conocimiento fundamental que he adquirido en esta asignatura es el lenguaje de programación Python, importante no solo para este trabajo o la asignatura si no para el futuro al ser un lenguaje importante y con mucho potencial.
+
+Aunque haya sido la asignatura sobre la que he basado el programa, las conocimientos de las asignaturas de los años anteriores son necesarios para llegar al nivel de conocimiento que requiere PTAVI. Las asignatura Informática I fue la puerta de entrada al mundo de la programación e Informática II me propuso retos más complicados que consiguieron que aumentase mucho mi nivel programando. Que todas las asignaturas de programación se impartiesen con diferentes lenguajes también me ayudó a saber adaptarme y no limitarme a uno solo.
+
+Aún habiendo citado estas asignaturas en concreto, considero que todas las asignaturas del grado me han servido para desarrollarme como estudiante y como persona, y por lo tanto en el resultado de este Trabajo Fin de Grado. Hay asignaturas que han podido resultarme más sencillas por haber captado mi interés y coincidir con mis gustos y otras en las que he tenido que dedicar mucho más tiempo para poder absorber los conocimientos que quiere transmitir, pero al final todas de un modo u otro me han hecho enfrentarme a problemas que en su totalidad han constituido un reto que he conseguido superar. Mirando atrás desde que empecé el grado veo que cuando en su momento dudé con alguna asignatura, ahora veo su utilidad.
+
+
+
+\section{Futuros trabajos}
+\label{sec:futuros-trabajos}
+
+Como he dicho el programa tiene un amplio rango de mejora, con funcionalidades adicionales que pueden dar más versatilidad y contenido al programa. Mi plan de futuro con este programa es poder mejorarlo según requiera la situación y cuando se puedan ver las necesidades cuando lo utilicen más alumnos.
+
+\begin{itemize}
+  \item Entre las nuevas funcionalidades que se pueden incluir se encuentra todo lo relativo al protocolo RTCP, donde se pueden añadir funciones como las que pertenecen a la cabecera RTP para poder controlar todo el contenido del protocolo. 
+  
+  \item También me gustaría añadir más codecs de audio. Si bien es una opción que investigué en su momento, hay varios protocolos que son de empresas donde la información pública es mucho más limitada y su inclusión en este proyecto excluí por las complicaciones que aportaba y porque el protocolo MP3 es ampliamente el más utilizado y suficiente para transmitir paquetes RTP, que es la función final del programa.
+  
+\end{itemize}
+
+Todo se puede mejorar y estoy dispuesto a ello, empezando por las mejoras que ya he identificado y siguiendo por todas aquellas que identifiquen los usuarios, ya que las necesidades reales surgen cuando lo utilizan los clientes finales.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -736,9 +691,113 @@ Por lo tanto, considero que el mayor problema fue entregar el programa con solo 
 \chapter{Manual de usuario}
 \label{app:manual}
 
-Esto es un apéndice.
-Si has creado una aplicación, siempre viene bien tener un manual de usuario.
-Pues ponlo aquí.
+El programa cliente puede tener cualquier propósito y diferentes implementaciones. Para el uso de SimpleRTP es necesario importar la biblioteca y también tener la biblioteca de bitstring.
+
+Existen diferentes niveles de abstracción, desde el nivel más abstracto en el que no es necesario indicar nada sobre el protocolo RTP y solo hay que pasar un fichero MP3, hasta el nivel donde podemos elegir todos los campos de la cabecera RTP, el tamaño del payload del paquete y la cantidad de paquetes que queremos enviar.
+
+\subsection{Mayor nivel de abstracción}
+\label {sec:mayor-abs}
+
+Un ejemplo de uso de SimpleRTP con el mayor nivel de abstracción es el siguiente:
+
+\begin{verbatim}
+     cabeceraRTP = simplertp.RtpHeader()
+     audio = simplertp.RtpPayloadMp3('fichero.mp3')
+
+     ip = '127.0.0.1'
+     port = 33332
+
+     simplertp.send_rtp_packet(cabeceraRTP, audio, ip, port)
+\end{verbatim}
+
+
+La primera línea crea una variable que contiene un objeto RtpHeader. Crear un objeto sin pasar ningún parámetro deja la cabecera con valores por defecto.
+
+En la segunda también tenemos una variable que contiene un objeto, en este caso de la clase RtpPayloadMp3. Para crear este objeto es necesario pasar el path donde se encuentra el fichero a enviar.
+
+Las siguientes dos líneas son variables para indicar IP y puerto de destino donde se abrirá el socket UDP, por lo que no dependen directamente de SimpleRTP y simplemente se podrían incluir sus valores en la siguiente línea.
+
+La última línea es donde se envían los paquetes. La función\begin{verbatim} send_rtp_packet \end{verbatim}necesita mínimo todos los argumentos que hemos definido anteriormente: una objeto RtpHeader, un objeto RtpPayloadMp3 y una IP y puerto destino. Sin más argumentos opcionales, el tamaño de payload y el número de paquetes enviados toma un valor por defecto.
+
+\subsection{Nivel medio de abstracción}
+\label{sec:media-abs}
+
+Entrando algo en detalle se pueden empezar a modificar campos de la cabecera RTP y el tamaño de los paquetes:
+
+\begin{verbatim}
+     csrc = [2000, 3000, 4000, 5000]
+     cabeceraRTP = simplertp.RtpHeader(cc=len(csrc))
+     cabeceraRTP.setCSRC(csrc)
+
+     audio = simplertp.RtpPayloadMp3('archivo.mp3')
+
+     numeroPaquetesRTP = 0
+     paquetesMP3porRTP = 2
+
+     ip = '127.0.0.1'
+     port = 33332
+
+     simplertp.send_rtp_packet(cabeceraRTP, audio, ip, port, paquetesMP3porRTP, numeroPaquetesRTP)
+
+\end{verbatim}
+
+En este caso al crear el objeto RtpHeader pasamos un argumento, el de la cuenta de número de fuentes contribuyentes. Se pueden pasar todos los argumentos que se quieran al crear el objeto dentro de los que existen, representando cada uno a un campo de la cabecera RTP.  Cuando creamos el objeto, todos los argumentos que no se pasen toman valores por defecto.
+
+Otra manera de definir campos de la cabecera es mediante funciones específicas para cada campo como setCSRC que define los identificadores de cada fuente contribuyente.
+
+En la llamada a sendrtppacket se pasan dos nuevos argumentos, paquetesMP3porRTP y numeroPaquetesRTP. Esto permite elegir el número de paquetes MP3 que contiene un solo paquete RTP aumentando así el tamaño del payload RTP. El segundo argumento nos permite elegir cuantos paquetes RTP queremos enviar con la llamada. Esto permite no enviar todo el archivo y cambiar parámetros RTP y enviar más paquetes después si así se desea.
+
+
+\subsection{Menor nivel de abstracción}
+\label{sec:menor-abs}
+
+En el menor nivel de abstracción que ofrece SimpleRTP podemos modificar todos los campos de la cabecera RTP junto al tamaño del payload del paquete y los paquetes enviados.
+
+\begin{verbatim}
+
+    cabeceraRTP = simplertp.RtpHeader()
+    csrc = [2000, 3000, 4000, 5000]
+    cabeceraRTP.set_header(version=2, pad_flag=0, ext_flag=0, cc=4, marker=0, payload_type=14, ssrc=1000)
+    cabeceraRTP.setCSRC(csrc)
+    audio = simplertp.RtpPayloadMp3('archivo.mp3')
+    numeroPaquetesRTP = 0
+    paquetesMP3porRTP = 2
+    ip = '127.0.0.1'
+    port = 33332
+    simplertp.send_rtp_packet(cabeceraRTP, audio, ip, port, paquetesMP3porRTP, numeroPaquetesRTP)
+
+\end{verbatim}
+
+En este ejemplo se usa una nueva función llamada setheader. Esta función pertenece al objeto RtpHeader y permite cambiar en una línea todos los campos de la cabecera. Siguen estando las funciones para cambiar solamente campos específicos. 
+
+En este nivel por lo tanto se pueden modificar todos los campos de la cabecera RTP de diferentes maneras y controlar el tamaño del payload y el número de paquetes.
+
+\subsection {Wireshark}
+\label{sec:manual-wireshark}
+
+Para analizar el tráfico generado se entiende que el usuario tiene un conocimiento básico de Wireshark y sabe capturar paquetes y analizar el contenido de cada uno. Sin embargo, incluyo este apartado para explicar cómo ver tráfico RTP en Wireshark ya que normalmente esta opción está desactivada por defecto y por lo tanto no se podría ver la cabecera RTP con sus contenidos.
+
+Por defecto enviando tráfico RTP veremos lo siguiente en Wireshark:
+
+\begin{figure}
+  \centering
+  \includegraphics[width=16cm, keepaspectratio]{img/wireshark-udp}
+  \caption{Wireshark sin analizar paquetes RTP.}
+  \label{fig:wireshark-udp}
+\end{figure}
+
+Como se puede observar, todo el tráfico se ve como UDP (el protocolo que utiliza el socket) pero nada de RTP. Si analizamos un paquete, vamos que contiene un gran payload pero lo clasifica como "data" y no interpreta nada.
+
+La solución a esto es la siguiente: desde la interfaz de Wireshark, ir a 'Analyze' en la barra superior y después a 'Enabled protocols'. Ahí debemos buscar RTP y activar 'rtp\_udp' como podemos ver en la figura \ref{fig:wireshark-sol}.
+
+\begin{figure}
+  \centering
+  \includegraphics[width=16cm, keepaspectratio]{img/wireshark-sol}
+  \caption{Casilla a activar para poder ver tráfico RTP.}
+  \label{fig:wireshark-sol}
+\end{figure}
+
+Una vez activado, se podrán ver las capturas como en las imágenes de los apartados anteriores.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
