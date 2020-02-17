@@ -372,8 +372,8 @@ El programa cliente emisor debe importar la librería SimpleRTP para poder abrir 
 En la figura~\ref{fig:flowchart}, se muestra un diagrama del funcionamiento del programa con los diferentes agentes que participan en el proceso del envío de paquetes.
 
 \begin{figure}[h]
-\includegraphics{img/diagrama-flowchart}
-\caption{FIXME: aquí viene una breve descripción de la figura}
+\includegraphics{img/Flowchart}
+\caption{Funcionamiento del programa en su conjunto.}
 \label{fig:flowchart}
 \end{figure}
 
@@ -389,7 +389,7 @@ El componente fundamental de este programa es la clase RtpHeader. Un objeto RtpH
 
 \begin{figure}[h]
 \includegraphics{img/diagrama-rtpheader}
-\caption{FIXME: aquí viene una breve descripción de la figura}
+\caption{Diagrama de funcionamiento de la clase RtpHeader}
 \label{fig:rtpheader}
 \end{figure}
 
@@ -475,7 +475,7 @@ La clase RtpPayloadMP3 tiene dos funciones. La primera, init, es la que se llama
 
 \begin{figure}[h]
 \includegraphics[width=17cm]{img/diagrama-mp3payload}
-\caption{FIXME: aquí viene una breve descripción de la figura}
+\caption{Diagrama de funcionamiento de la clase RtpPayloadMP3}
 \label{fig:payload}
 \end{figure}
 
@@ -525,7 +525,7 @@ El diagrama que representa el flujo de funcionamiento de la función se muestra e
 
 \begin{figure}[h]
 \includegraphics[width=17cm]{img/diagrama-sendpacket}
-\caption{FIXME: aquí viene una breve descripción de la figura}
+\caption{Diagrama de funcionamiento del envío de paquetes RTP mediante send\_rtp\_packet.}
 \label{fig:sendpacket}
 \end{figure}
 
@@ -533,96 +533,6 @@ El diagrama que representa el flujo de funcionamiento de la función se muestra e
 Tras abrir el socket UDP con la dirección indicada, se empiezan a enviar paquetes RTP en bucle. El paquete que se envía se forma juntando los diferentes campos que contiene el objeto RtpHeader en orden y tras esto se juntan al final el número de paquetes MP3 indicados, que forman el \emph{payload} del paquete final. Cada vez que se añade un paquete MP3 se llama a la función \_take\_mp3\_frame que es la encargada de identificar el siguiente paquete. 
 
 Una vez formado el paquete se convierte a bytes y se envía. Después se aumentan los valores de número de secuencia y timestamp RTP para prepararse para enviar el siguiente paquete.
-
-\section{Programa cliente}
-\label{sec:programa-cliente}
-
-<<<<<<< HEAD
-Todo lo relativo al programa cliente lo he incluido en el capítulo \ref{app:manual}. Ahí se explica como utilizar SimpleRTP desde el punto de vista del cliente de diferentes formas según sea el objetivo. Todas las referencias a los niveles de abstracción en esta memoria se refieren a los niveles de abstracción del programa cliente que se pueden ver en el manual de usuario.
-=======
-El programa cliente puede tener cualquier propósito y diferentes implementaciones. Para el uso de SimpleRTP es necesario importar la biblioteca.
-
-Existen diferentes niveles de abstracción, desde el nivel más abstracto en el que no es necesario indicar nada sobre el protocolo RTP y solo hay que pasar un fichero MP3, hasta el nivel donde podemos elegir todos los campos de la cabecera RTP, el tamaño del \emph{payload} del paquete y la cantidad de paquetes que queremos enviar.
-
-\subsection{Mayor nivel de abstracción}
-\label {sec:mayor-abs}
-
-Un ejemplo de uso de SimpleRTP con el mayor nivel de abstracción es el siguiente:
-
-\begin{verbatim}
-     cabeceraRTP = simplertp.RtpHeader()
-     audio = simplertp.RtpPayloadMp3('fichero.mp3')
-
-     ip = '127.0.0.1'
-     port = 33332
-
-     simplertp.send_rtp_packet(cabeceraRTP, audio, ip, port)
-\end{verbatim}
-
-
-La primera línea crea una variable que contiene un objeto RtpHeader. Crear un objeto sin pasar ningún parámetro deja la cabecera con valores por defecto.
-
-En la segunda también tenemos una variable que contiene un objeto, en este caso de la clase RtpPayloadMp3. Para crear este objeto es necesario pasar el path donde se encuentra el fichero a enviar.
-
-Las siguientes dos líneas son variables para indicar IP y puerto de destino donde se abrirá el socket UDP, por lo que no dependen directamente de SimpleRTP y simplemente se podrían incluir sus valores en la siguiente línea.
-
-La última línea es donde se envían los paquetes. La función\begin{verbatim} send_rtp_packet \end{verbatim}necesita mínimo todos los argumentos que hemos definido anteriormente: una objeto RtpHeader, un objeto RtpPayloadMp3 y una IP y puerto destino. Sin más argumentos opcionales, el tamaño de \emph{payload} y el número de paquetes enviados toma un valor por defecto.
-
-\subsection{Nivel medio de abstracción}
-\label{sec:media-abs}
-
-Entrando algo en detalle se pueden empezar a modificar campos de la cabecera RTP y el tamaño de los paquetes:
-
-\begin{verbatim}
-     csrc = [2000, 3000, 4000, 5000]
-     cabeceraRTP = simplertp.RtpHeader(cc=len(csrc))
-     cabeceraRTP.setCSRC(csrc)
-
-     audio = simplertp.RtpPayloadMp3('archivo.mp3')
-
-     numeroPaquetesRTP = 0
-     paquetesMP3porRTP = 2
-
-     ip = '127.0.0.1'
-     port = 33332
-
-     simplertp.send_rtp_packet(cabeceraRTP, audio, ip, port, paquetesMP3porRTP, numeroPaquetesRTP)
-
-\end{verbatim}
-
-En este caso al crear el objeto RtpHeader pasamos un argumento, el de la cuenta de número de fuentes contribuyentes. Se pueden pasar todos los argumentos que se quieran al crear el objeto dentro de los que existen, representando cada uno a un campo de la cabecera RTP.  Cuando creamos el objeto, todos los argumentos que no se pasen toman valores por defecto.
-
-Otra manera de definir campos de la cabecera es mediante funciones específicas para cada campo como setCSRC que define los identificadores de cada fuente contribuyente.
-
-En la llamada a sendrtppacket se pasan dos nuevos argumentos, paquetesMP3porRTP y numeroPaquetesRTP. Esto permite elegir el número de paquetes MP3 que contiene un solo paquete RTP aumentando así el tamaño del \emph{payload} RTP. El segundo argumento nos permite elegir cuantos paquetes RTP queremos enviar con la llamada. Esto permite no enviar todo el archivo y cambiar parámetros RTP y enviar más paquetes después si así se desea.
-
-
-\subsection{Menor nivel de abstracción}
-\label{sec:menor-abs}
-
-En el menor nivel de abstracción que ofrece SimpleRTP podemos modificar todos los campos de la cabecera RTP junto al tamaño del \emph{payload} del paquete y los paquetes enviados.
-
-\begin{verbatim}
-
-    cabeceraRTP = simplertp.RtpHeader()
-    csrc = [2000, 3000, 4000, 5000]
-    cabeceraRTP.set_header(version=2, pad_flag=0, ext_flag=0, cc=4, marker=0, \emph{payload}_type=14, ssrc=1000)
-    cabeceraRTP.setCSRC(csrc)
-    audio = simplertp.RtpPayloadMp3('archivo.mp3')
-    numeroPaquetesRTP = 0
-    paquetesMP3porRTP = 2
-    ip = '127.0.0.1'
-    port = 33332
-    simplertp.send_rtp_packet(cabeceraRTP, audio, ip, port, paquetesMP3porRTP, numeroPaquetesRTP)
-
-\end{verbatim}
-
-En este ejemplo se usa una nueva función llamada setheader. Esta función pertenece al objeto RtpHeader y permite cambiar en una línea todos los campos de la cabecera. Siguen estando las funciones para cambiar solamente campos específicos. 
-
-En este nivel por lo tanto se pueden modificar todos los campos de la cabecera RTP de diferentes maneras y controlar el tamaño del \emph{payload} y el número de paquetes.
->>>>>>> ee8101cb92b2e988459c43054909f65fe216b645
-
-
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -804,7 +714,7 @@ Todo se puede mejorar y estoy dispuesto a ello, empezando por las mejoras que ya
 
 El programa cliente puede tener cualquier propósito y diferentes implementaciones. Para el uso de SimpleRTP es necesario importar la biblioteca y también tener la biblioteca de bitstring.
 
-Existen diferentes niveles de abstracción, desde el nivel más abstracto en el que no es necesario indicar nada sobre el protocolo RTP y solo hay que pasar un fichero MP3, hasta el nivel donde podemos elegir todos los campos de la cabecera RTP, el tamaño del payload del paquete y la cantidad de paquetes que queremos enviar.
+Existen diferentes niveles de abstracción, desde el nivel más abstracto en el que no es necesario indicar nada sobre el protocolo RTP y solo hay que pasar un fichero MP3, hasta el nivel donde podemos elegir todos los campos de la cabecera RTP, el tamaño del \emph{payload} del paquete y la cantidad de paquetes que queremos enviar.
 
 \subsection{Mayor nivel de abstracción}
 \label {sec:mayor-abs}
@@ -828,7 +738,7 @@ En la segunda también tenemos una variable que contiene un objeto, en este caso 
 
 Las siguientes dos líneas son variables para indicar IP y puerto de destino donde se abrirá el socket UDP, por lo que no dependen directamente de SimpleRTP y simplemente se podrían incluir sus valores en la siguiente línea.
 
-La última línea es donde se envían los paquetes. La función\begin{verbatim} send_rtp_packet \end{verbatim}necesita mínimo todos los argumentos que hemos definido anteriormente: una objeto RtpHeader, un objeto RtpPayloadMp3 y una IP y puerto destino. Sin más argumentos opcionales, el tamaño de payload y el número de paquetes enviados toma un valor por defecto.
+La última línea es donde se envían los paquetes. La función\begin{verbatim} send_rtp_packet \end{verbatim}necesita mínimo todos los argumentos que hemos definido anteriormente: una objeto RtpHeader, un objeto RtpPayloadMp3 y una IP y puerto destino. Sin más argumentos opcionales, el tamaño de \emph{payload} y el número de paquetes enviados toma un valor por defecto.
 
 \subsection{Nivel medio de abstracción}
 \label{sec:media-abs}
@@ -856,19 +766,19 @@ En este caso al crear el objeto RtpHeader pasamos un argumento, el de la cuenta 
 
 Otra manera de definir campos de la cabecera es mediante funciones específicas para cada campo como setCSRC que define los identificadores de cada fuente contribuyente.
 
-En la llamada a sendrtppacket se pasan dos nuevos argumentos, paquetesMP3porRTP y numeroPaquetesRTP. Esto permite elegir el número de paquetes MP3 que contiene un solo paquete RTP aumentando así el tamaño del payload RTP. El segundo argumento nos permite elegir cuantos paquetes RTP queremos enviar con la llamada. Esto permite no enviar todo el archivo y cambiar parámetros RTP y enviar más paquetes después si así se desea.
+En la llamada a sendrtppacket se pasan dos nuevos argumentos, paquetesMP3porRTP y numeroPaquetesRTP. Esto permite elegir el número de paquetes MP3 que contiene un solo paquete RTP aumentando así el tamaño del \emph{payload} RTP. El segundo argumento nos permite elegir cuantos paquetes RTP queremos enviar con la llamada. Esto permite no enviar todo el archivo y cambiar parámetros RTP y enviar más paquetes después si así se desea.
 
 
 \subsection{Menor nivel de abstracción}
 \label{sec:menor-abs}
 
-En el menor nivel de abstracción que ofrece SimpleRTP podemos modificar todos los campos de la cabecera RTP junto al tamaño del payload del paquete y los paquetes enviados.
+En el menor nivel de abstracción que ofrece SimpleRTP podemos modificar todos los campos de la cabecera RTP junto al tamaño del \emph{payload} del paquete y los paquetes enviados.
 
 \begin{verbatim}
 
     cabeceraRTP = simplertp.RtpHeader()
     csrc = [2000, 3000, 4000, 5000]
-    cabeceraRTP.set_header(version=2, pad_flag=0, ext_flag=0, cc=4, marker=0, payload_type=14, ssrc=1000)
+    cabeceraRTP.set_header(version=2, pad_flag=0, ext_flag=0, cc=4, marker=0, \emph{payload}_type=14, ssrc=1000)
     cabeceraRTP.setCSRC(csrc)
     audio = simplertp.RtpPayloadMp3('archivo.mp3')
     numeroPaquetesRTP = 0
@@ -881,7 +791,7 @@ En el menor nivel de abstracción que ofrece SimpleRTP podemos modificar todos lo
 
 En este ejemplo se usa una nueva función llamada setheader. Esta función pertenece al objeto RtpHeader y permite cambiar en una línea todos los campos de la cabecera. Siguen estando las funciones para cambiar solamente campos específicos. 
 
-En este nivel por lo tanto se pueden modificar todos los campos de la cabecera RTP de diferentes maneras y controlar el tamaño del payload y el número de paquetes.
+En este nivel por lo tanto se pueden modificar todos los campos de la cabecera RTP de diferentes maneras y controlar el tamaño del \emph{payload} y el número de paquetes.
 
 \subsection {Wireshark}
 \label{sec:manual-wireshark}
