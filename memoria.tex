@@ -304,12 +304,20 @@ Entre enero y febrero acabo de pulir y eliminar errores del programa y escribo l
 \chapter{Estado del arte - Tecnologías relacionadas}
 \label{chap:estado}
 
-FIXME: faltaría una introducción al capítulo.
+En este capítulo se introducen todas las tecnologías implicadas en el desarrollo de este proyecto. Primero se presenta el programa que ha dado pie a SimpleRTP, \texttt{mp32rtp}. Después se encuentra una breve descripción del lenguaje de programación Python, que es el que se ha usado para escribir el programa tanto por ser el lenguaje que más me ha gustado por sus características.
+A continuación se describen los diferentes protocolos: RTP y MP3 los más importantes para este proyecto al ser respectivamente la cabecera y el dato útil del paquete que transmite el audio. SDP y SIP son dos protocolos importantes para la transmisión de contenido multimedia por RTP por lo que si bien no son de uso obligatorio para \texttt{SimpleRTP} (se pueden usar otro protocolos con las mismas funciones) se exponen sus funciones principales.
+Bitstring es una libreria de la que me he servido para manejar de una manera más sencilla los bits que componen las cabeceras de RTP y MP3, al incluir funciones que por defecto no incluye Python.
+Wireshark es un conocido analizador de tráfico que resulta de gran ayuda para ver tráfico real generado \texttt{SimpleRTP} y poder analizar el resultado de enviar paquetes RTP y verificarlo.
+
 
 \section{mp32rtp}
 \label{sec:mp32rtp}
 
-FIXME: aquí deberías hablar de mp32rtp... es muy importante porque esto es lo que existía antes. Puedes hacerlo más ampliamente que las demás tecnologías, porque en realidad lo que buscamos es que se entienda que queremos algo parecido a mp32rtp, pero más versátil.
+El programa \texttt{mp32rtp} es el que se usa en la asignatura PTAVI para transmitir contenido MP3 a través de RTP. Está escrito en el lenguaje de programación C y envía audio MPEG sobre RTP sin que sea necesaria mucha configuración y sin la necesidad de un servidor para transmitir. Puede enviar paquetes a diferentes usuarios con transmisiones unicast, multicast o broadcast.
+
+En las prácticas de la asignatura este programa se usa mediante un comando que se ejecuta desde el propio sistema (llamando a \texttt{os.system} y en este comando llamando a \texttt{mp32rtp} y pasando como argumentos IP, puerto y fichero de audio.
+
+El problema de \texttt{mp32rtp} es doble: por un lado su documentación es bastante pobre, siendo difícil encontrar información en Internet sobre este. Por otro lado y como consecuencia de la pobre documentación, es que no se puede hacer otra cosa con este programa a parte de enviar RTP con los valores que da directamente el programa. El usuario no solo no puede indicar qué parámetros quiere configurar en la cabecera RTP si no que tampoco puede saber a priori cómo se va a enviar el paquete.
 
 
 \section{Python}
