@@ -113,7 +113,7 @@ Título del Trabajo con Letras Capitales para Sustantivos y Adjetivos
 \end{center}
 
 \vspace{1cm}
-La defensa del presente Proyecto Fin de Carrera se realizó el día \qquad$\;\,$ de \qquad\qquad\qquad\qquad \newline de 2020, siendo calificada por el siguiente tribunal:
+La defensa del presente Proyecto Fin de Carrera se realizó el día \qquad$\;\,$ de marzo de 2020, siendo calificada por el siguiente tribunal:
 
 
 \vspace{0.5cm}
@@ -135,7 +135,7 @@ y habiendo obtenido la siguiente calificación:
 
 \vspace{1cm}
 \begin{flushright}
-Fuenlabrada, a \qquad$\;\,$ de \qquad\qquad\qquad\qquad de 2020
+Fuenlabrada, a \qquad$\;\,$ de marzo de 2020
 \end{flushright}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -226,7 +226,7 @@ Este Trabajo Fin de Grado nace de la asignatura Protocolos para la Transmisión d
 
 Acepté este proyecto por varios motivos. El primero es que deriva de una asignatura que me ha resultado muy interesante y combina varios conocimientos adquiridos en la carrera: programación, protocolos a nivel de red e imagen y sonido. Esto se ajusta a mi gusto por programar a la vez que se tratan contenidos audiovisuales, tan importantes en el grado. El segundo es que es un proyecto que puede tener mucha utilidad, que puede ser utilizado y aprovechado por gente y no ser un proyecto que queda en el olvido. Si cumple con su cometido puede tener un buen fin, que es ayudar a otras personas a estudiar el protocolo RTP de una manera práctica.
 
-La realización de este proyecto contempla varios retos, entre ellos empezar un programa desde cero al no haber una base previa para el propósito del programa y encontrar la forma de que su utilizarlo sea a la vez sencillo para cualquier persona pero con el detalle suficiente para estudiar. A lo largo de la memoria se explica en mayor profundidad cada punto anteriormente citado y como se ha desarrollado.
+La realización de este proyecto contempla varios retos, entre ellos empezar un programa desde cero al no haber una base previa para el propósito del programa y encontrar la forma de que su utilizarlo sea a la vez sencillo para cualquier persona pero con el detalle suficiente para estudiar. A lo largo de la memoria se explica en mayor profundidad cada punto anteriormente citado y cómo se ha desarrollado.
 
 \section{Estructura de la memoria}
 \label{sec:estructura}
@@ -234,9 +234,11 @@ La realización de este proyecto contempla varios retos, entre ellos empezar un p
 La memoria de este trabajo se divide en diferentes capítulos, resumidos a continuación:
 
 \begin{itemize}
-  \item El primer capítulo explica el origen de la iniactiva de este trabajo y el cómo y porqué se ha llevado a cabo.
+  \item El primer capítulo explica el origen de la iniactiva de este trabajo y el cómo y por qué se ha llevado a cabo.
   
   \item  En el segundo capítulo se expone el objetivo principal que se busca alcanzar y los diferentes objetivos específicos en los que se ha divido para desarrollarlo, incluyendo la planificación temporal que ha supuesto.
+  
+  FIXME: No entiendo los tres siguientes puntos... aquí deberíamos hablar de lo que nos vamos a encontrar en los siguientes capítulos, el III, IV y V.
 
   \item Implementar funciones según avanza el programa. Dar más accesibilidad según un modelo API e integrar más funciones a la hora de la utilización añadiendo campos de la cabecera modificables por el usuario.
 
@@ -261,7 +263,7 @@ La memoria de este trabajo se divide en diferentes capítulos, resumidos a contin
 
 El objetivo de este Trabajo de Fin de Grado es crear una biblioteca de envío RTP en Python para su uso didáctico. Esta biblioteca contará con diferentes niveles de complejidad, y permitirá enviar tráfico RTP con los parámetros que el usuario quiera definir. De esta manera se puede analizar el comportamiento del protocolo en diferentes escenarios, comprobando su funcionamiento y capacidades.
 
-El trabajo busca encontrar la manera más amigable y sencilla para el usuario de usar el protocolo RTP para enviar archivos de audio MP3, y ahondar en funciones más complejas según se quiera buscar detalle. Para este propósito he decidido elegir el formato de programa como API.
+El trabajo busca encontrar la manera más amigable y sencilla para el usuario de usar el protocolo RTP para enviar archivos de audio MP3, y ahondar en funciones más complejas según se quiera utilizar en detalle. Para este propósito, me he decidido por crear una biblioteca (que pueda ser utilizada como API).
 
 \section{Objetivos específicos}
 \label{sec:objetivos-especificos}
@@ -284,15 +286,15 @@ Para llevar a cabo el objetivo general del trabajo, he tenido que realizar difer
 \section{Planificación temporal}
 \label{sec:planificacion-temporal}
 
-Este trabajo de fin de grado empieza en julio de 2019 al plantearse una idea inicial y sus objetivos. Entre agosto y septiembre hago los fines de semana un trabajo de investigación sobre los protocolos y un planteamiento inicial de como plasmar la idea en un programa en Python. También llevo a cabo una búsqueda de programas con un objetivo similar al mío pero sin resultados satisfactorios, por lo que procedo a buscar librerías que puedan ayudarme a empezar. La razón de no dedicar más tiempo en estos momentos es por trabajo.
+Este trabajo de fin de grado empieza en julio de 2019 al plantearse una idea inicial y sus objetivos. Entre agosto y septiembre hago los fines de semana un trabajo de investigación sobre los protocolos y un planteamiento inicial de como plasmar la idea en un programa en Python. También llevo a cabo una búsqueda de programas con un objetivo similar al mío pero sin resultados satisfactorios, por lo que procedo a buscar bibliotecas que puedan ayudarme a empezar. La razón de no poder dedicar más tiempo en estos momentos es por trabajo.
 
-Entre octubre y noviembre desarrollo el programa partiendo de una situación inicial con todos los datos recabados anteriormente.  Al no haber encontrado programas con objetivos parecidos se hace más complicado el desarrollo al tener que escribir todas las funciones del programa sin base previa. En estos dos meses me encuentro con el tutor Gregorio Robles varias veces para revisar el avance y dirigir el programa hacia el objetivo final.
+Entre octubre y noviembre desarrollo el programa partiendo de una situación inicial con todos los datos recabados anteriormente.  Al no haber encontrado programas con objetivos parecidos se hace más complicado el desarrollo al tener que escribir todas las funciones de la bibliotca sin base previa. En estos dos meses me reuno varias veces con el tutor Gregorio Robles para revisar el avance y dirigir la biblioteca hacia el objetivo final.
 
-En diciembre el programa ya está acabado con las funcionalidad que se consideran necesarias y se da a probar a los alumnos para poder identificar fallos y puntos de mejora.
+En diciembre la biblioteca ya está acabado con las funcionalidad que se consideran necesarias y se da a probar a los alumnos para poder identificar fallos y puntos de mejora.
 
-En enero de 2020, tras recibir respuesta de los alumnos, identifico en qué ha fallado el programa y en qué ha tenido éxito y procedo a mejorar el programa y a pulirlo en función a esto.
+En enero de 2020, tras recibir respuesta de los alumnos, identifico en qué ha fallado la biblioteca y en qué ha tenido éxito, y procedo a mejorar el programa y a pulirlo en función a esto.
 
-Entre enero y febrero acabo de pulir y eliminar errores del programa y escribo la memoria del Trabajo de Fin de Grado, finalizando este mismo.
+Entre enero y febrero acabo de pulir y eliminar errores de la biblioteca y escribo la memoria del Trabajo de Fin de Grado, finalizando este mismo.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -305,8 +307,10 @@ Entre enero y febrero acabo de pulir y eliminar errores del programa y escribo l
 \label{chap:estado}
 
 En este capítulo se introducen todas las tecnologías implicadas en el desarrollo de este proyecto. Primero se presenta el programa que ha dado pie a SimpleRTP, \texttt{mp32rtp}. Después se encuentra una breve descripción del lenguaje de programación Python, que es el que se ha usado para escribir el programa tanto por ser el lenguaje que más me ha gustado por sus características.
+
 A continuación se describen los diferentes protocolos: RTP y MP3 los más importantes para este proyecto al ser respectivamente la cabecera y el dato útil del paquete que transmite el audio. SDP y SIP son dos protocolos importantes para la transmisión de contenido multimedia por RTP por lo que si bien no son de uso obligatorio para \texttt{SimpleRTP} (se pueden usar otro protocolos con las mismas funciones) se exponen sus funciones principales.
-Bitstring es una libreria de la que me he servido para manejar de una manera más sencilla los bits que componen las cabeceras de RTP y MP3, al incluir funciones que por defecto no incluye Python.
+
+Bitstring es una biblioteca de la que me he servido para manejar de una manera más sencilla los bits que componen las cabeceras de RTP y MP3, al incluir funciones que por defecto no incluye Python.
 Wireshark es un conocido analizador de tráfico que resulta de gran ayuda para ver tráfico real generado \texttt{SimpleRTP} y poder analizar el resultado de enviar paquetes RTP y verificarlo.
 
 
@@ -315,14 +319,28 @@ Wireshark es un conocido analizador de tráfico que resulta de gran ayuda para ve
 
 El programa \texttt{mp32rtp} es el que se usa en la asignatura PTAVI para transmitir contenido MP3 a través de RTP. Está escrito en el lenguaje de programación C y envía audio MPEG sobre RTP sin que sea necesaria mucha configuración y sin la necesidad de un servidor para transmitir. Puede enviar paquetes a diferentes usuarios con transmisiones unicast, multicast o broadcast.
 
-En las prácticas de la asignatura este programa se usa mediante un comando que se ejecuta desde el propio sistema (llamando a \texttt{os.system} y en este comando llamando a \texttt{mp32rtp} y pasando como argumentos IP, puerto y fichero de audio.
+En las prácticas de la asignatura este programa se usa mediante un comando que se ejecuta desde el propio sistema (llamando a \texttt{os.system}) y en este comando llamando a \texttt{mp32rtp} y pasando como argumentos IP, puerto y fichero de audio. En particular, se especifica que se ha de utilizar un código parecido al siguiente:
 
-El problema de \texttt{mp32rtp} es doble: por un lado su documentación es bastante pobre, siendo difícil encontrar información en Internet sobre este. Por otro lado y como consecuencia de la pobre documentación, es que no se puede hacer otra cosa con este programa a parte de enviar RTP con los valores que da directamente el programa. El usuario no solo no puede indicar qué parámetros quiere configurar en la cabecera RTP si no que tampoco puede saber a priori cómo se va a enviar el paquete.
+\begin{verbatim}
+import os
+
+# aEjecutar es un string con lo que se ha de ejecutar en la shell
+aEjecutar = "./mp32rtp -i " + receptor_IP + " -p " + receptor_Puerto 
+aEjecutar += " < " + fichero_audio
+
+print "Vamos a ejecutar", aEjecutar
+os.system(aEjecutar)
+\end{verbatim}
+
+\emph{receptor\_IP} y \emph{receptor\_Puerto} son valores que hemos obtenido del cliente (vía \emph{proxy}) mediante la descripción de la sesión (en SDP) y \emph{fichero\_audio} es uno de los parámetros de configuración del \emph{User Agent} guardados en el XML.
+
+El uso docente de \texttt{mp32rtp} plantea varios problemas y limitaciones: por un lado su documentación es bastante pobre, siendo difícil encontrar información en Internet sobre este. Por otro lado y como consecuencia de la pobre documentación, es que no se puede hacer otra cosa con este programa a parte de enviar RTP con los valores que da directamente el programa. El usuario no solo no puede indicar qué parámetros quiere configurar en la cabecera RTP si no que tampoco puede saber a priori cómo se va a enviar el paquete. También hay que tener en cuenta que el programa está escrito en C++, y en particular, en una versión C++ que está desactualizada. Es por eso que el profesor nos lo ofrece como binario, compilado para Debian/Ubuntu para la arquitectura específica de los laboratorios docentes. Aquellos alumnos que utilicen otras arquitecturas (p.ej., los que tienen un Mac) no podrán utilizarlo en sus máquinas. Por último, y no menos importante, el uso de \texttt{mp32rtp} es pedagógicamente pobre: se trata de un parche que posibilita que la práctica funcione, pero no fomenta ni buenas prácticas de programación ni mucho menos el mejor conocimiento del protocolo RTP.
 
 
 \section{Python}
 \label{sec:python}
-Python es un lenguaje de programación interpretado cuya filosofía hace hincapié en la legibilidad de su código, creado a finales de la década de los ochenta del siglo pasado por Guido van Rossum.  Es un lenguaje de programación multiparadigma, lo que significa que la programación puede ser orientada a objetos, imperativa o funcional. Es un lenguaje donde se hace hincapié en la legibilidad del código y en la sencillez, usando palabras donde otros lenguajes usan símbolos y utilizando \emph{indentación} para diferenciar los diferentes bloques de código que incluyen clases, funciones, bucles o condiciones entre otras cosas.
+
+Python es un lenguaje de programación interpretado cuya filosofía hace hincapié en la legibilidad de su código, creado a finales de la década de los ochenta del siglo pasado por Guido van Rossum~\cite{van2007python}.  Es un lenguaje de programación multiparadigma, lo que significa que la programación puede ser orientada a objetos, imperativa o funcional. Es un lenguaje donde se hace hincapié en la legibilidad del código y en la sencillez, usando palabras donde otros lenguajes usan símbolos y utilizando \emph{indentación} para diferenciar los diferentes bloques de código que incluyen clases, funciones, bucles o condiciones entre otras cosas.
 
 Tiene principios que al cumplirlos el código se considera "pythoniano", entre los cuales destaco:
 \begin{itemize}
@@ -335,6 +353,8 @@ Tiene principios que al cumplirlos el código se considera "pythoniano", entre lo
   \item Si la implementación es difícil de explicar, es una mala idea.
   
 \end{itemize}
+
+FIXME: Explicar que hay python2 y python3, que son (ligeramente) incompatibles entre sí y que este proyecto se ha realizado en Python3, porque Python2 ya no se mantiene activamente.
 
 \section{RTP}
 \label{sec:arteRTP}
@@ -353,11 +373,9 @@ Si bien este proyecto se centra en RTP y sus funcionalidades, caben destacar dos
 
 Las sesiones RTP donde se encuentran los flujos multimedia se inicializan mediante un protocolo de señalización. Entre ellos se encuentra SIP o Session Initiation Protocol que a su vez puede utilizar SDP o Session Description Protocol.
 
-SIP (RFC 3261) es un protocolo utilizado para iniciar, mantener y finalizar sesiones multimedia en tiempo real. Es un protocolo basado en texto que comparte elementos de HTML y SMTP. Los diferentes end-points que utilizan SIP para comunicarse se llaman User Agents o UA, y actúan como UA Client al hacer una petición o como UA Server al responder a una petición. Otros agentes que actúan en la comunicación SIP son los Proxy Server, que actúan como intermediario y pueden hacer funciones de \emph{routing} o seguridad, y los Registrar, que aceptan peticiones \texttt{REGISTER} de los UA para mantener información sobre este incluyendo su dirección.
+SIP (RFC 3261~\cite{rosenberg2002rfc3261}) es un protocolo utilizado para iniciar, mantener y finalizar sesiones multimedia en tiempo real. Es un protocolo basado en texto que comparte elementos de HTML y SMTP. Los diferentes end-points que utilizan SIP para comunicarse se llaman User Agents o UA, y actúan como UA Client al hacer una petición o como UA Server al responder a una petición. Otros agentes que actúan en la comunicación SIP son los Proxy Server, que actúan como intermediario y pueden hacer funciones de \emph{routing} o seguridad, y los Registrar, que aceptan peticiones \texttt{REGISTER} de los UA para mantener información sobre este incluyendo su dirección.
 
-SDP (RFC 4566) es un formato para describir parámetros de sesión en una comunicación multimedia en tiempo real. Entre sus funciones se encuentran los anuncios e invitaciones de sesiones y la negociación de parámetros entre los end-points, que juntos forman el perfil de la sesión. Al igual que SIP, está diseñado para soportar nuevos formatos sin cambiar el formato.
-
-FIXME: falta referencia (URL)
+SDP (RFC 4566~\cite{handley1998sdp}) es un formato para describir parámetros de sesión en una comunicación multimedia en tiempo real. Entre sus funciones se encuentran los anuncios e invitaciones de sesiones y la negociación de parámetros entre los end-points, que juntos forman el perfil de la sesión. Al igual que SIP, está diseñado para soportar nuevos formatos sin cambiar el formato.
 
 \section {MP3}
 \label {sec:mp3}
@@ -406,7 +424,7 @@ FIXME: falta referencia (URL)
 
 El programa está desarrollado como una biblioteca ofreciendo una API, lo que significa que sirve para dar funciones y procedimientos a otro software sin que este se tenga que preocupar del funcionamiento interno de las funciones utilizadas. Esta capa de abstracción hace que el uso sea más fácil para el usuario. En el caso de SimpleRTP, se ofrecen diferentes niveles de abstracción con el objetivo de poder profundizar en las opciones del programa.
 
-El programa cliente emisor debe importar la librería SimpleRTP para poder abrir una conexión UDP y enviar paquetes RTP, mientras que un posible programa receptor que escuche en el puerto objetivo no necesita importarla.
+El programa cliente emisor debe importar la biblioteca SimpleRTP para poder abrir una conexión UDP y enviar paquetes RTP, mientras que un posible programa receptor que escuche en el puerto objetivo no necesita importarla.
 
 En la figura~\ref{fig:flowchart}, se muestra un diagrama del funcionamiento del programa con los diferentes agentes que participan en el proceso del envío de paquetes.
 
@@ -438,10 +456,12 @@ El componente fundamental de este programa es la clase RtpHeader. Un objeto RtpH
 Al crearse el objeto se ejecuta la función Init:
 
 \begin{verbatim}
-def __init__(self, version=2, pad_flag=0, ext_flag=0, cc=0, marker=0, payload_type=14, ssrc=1000):
+def __init__(self, version=2, pad_flag=0, ext_flag=0, cc=0, marker=0,
+             payload_type=14, ssrc=1000):
         self.seq_number = random.randint(1, 10000)  # Aleatorio
         self.timestamp = random.randint(1, 10000)  # Aleatorio
-        self.set_header(version, pad_flag, ext_flag, cc, marker, payload_type, ssrc)
+        self.set_header(version, pad_flag, ext_flag, cc, marker, 
+                        payload_type, ssrc)
 \end{verbatim}
 
 Todos los argumentos con los que se crea un objeto son opcionales y tienen valores por defecto, por lo que no es necesario para un uso básico usar ninguno. Por defecto se define un número de secuencia y timestamp aleatorios (impredecibles) para reforzar la seguridad y evitar ciertos ataques que se basan en estos valores. Estos dos valores se guardan en variables para su uso más adelante.
@@ -453,10 +473,12 @@ La función Init llama a la siguiente función que también puede llamar el usuario
 Esta función puede ser invocada por el usuario o al final de la función Init:
 
 \begin{verbatim}
-def set_header(self, version=2, pad_flag=0, ext_flag=0, cc=0, marker=0, payload_type=14, ssrc=1000):
+def set_header(self, version=2, pad_flag=0, ext_flag=0, cc=0, marker=0, 
+               payload_type=14, ssrc=1000):
         self.version = BitArray(uint = version, length = 2)
         self.pad_flag = BitArray(uint = pad_flag, length = 1)
         self.ext_flag = BitArray(uint = ext_flag, length = 1)
+        
         self.cc = BitArray(uint = cc, length = 4)
         self.marker = BitArray(uint = marker, length = 1)
         self.payload_type = BitArray(uint = payload_type, length = 7)
@@ -663,7 +685,7 @@ En esta prueba podemos ver el problema desde el primer momento al indicar \textt
 \section{Pruebas con alumnos}
 \label{sec:pruebas}
 
-Para poner a prueba el programa, se le proporciono una versión no final a los alumnos de la asignatura de 'Protocolos para la transmisión de audio y video en Internet' del grado de Ingeniería en sistemas audiovisuales y multimedia. El objetivo era comprobar el grado de funcionamiento del programa expuesto a varias pruebas hechas por otras personas y analizar si el programa lograba su objetivo de ofrecer una manera fácil de usarse para propósitos educativos.
+Para poner a prueba el programa, se le proporcionó una versión \emph{beta} a los alumnos de la asignatura de 'Protocolos para la transmisión de audio y vídeo en Internet' del grado de Ingeniería en sistemas audiovisuales y multimedia. El objetivo era comprobar el grado de funcionamiento del programa expuesto a varias pruebas hechas por otras personas y analizar si el programa lograba su objetivo de ofrecer una manera fácil de usarse para propósitos educativos.
 
 Tras dar un tiempo a los alumnos para integrar SimpleRTP en su práctica de la asignatura, se han podido identificar varios puntos a cambiar. Al analizar el código que usaron los alumnos, se pudo ver que no supieron entender como integrar este programa con el que ya tenían, ya que combinaban el método que utilizaban antes para enviar paquetes RTP con la biblioteca de SimpleRTP.
 
