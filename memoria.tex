@@ -135,7 +135,7 @@ y habiendo obtenido la siguiente calificación:
 
 \vspace{1cm}
 \begin{flushright}
-Fuenlabrada, a \qquad$\;\,$ de \qquad\qquad\qquad\qquad de 20CE
+Fuenlabrada, a \qquad$\;\,$ de \qquad\qquad\qquad\qquad de 2020
 \end{flushright}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -161,7 +161,7 @@ La carrera no habría sido lo mismo sin mis compañeros desde el inicio de esta, q
 
 Gracias también a mis amigos por que sin ellos, nada sería lo mismo. Su apoyo e interés también es una razón para seguir adelante y poder compartir con ellos los buenos momentos. Espero para ellos todo lo bueno que les pueda ocurrir y les ayudaré igual que ellos hicieron.
 
-Y sobretodo gracias a mis abuelos, que al final siempre son los que más se preocupan por sus nietos y quienes más se alegran por su simple presencia. Otro motivo más para luchar al máximo y que puedan ver con sus propios ojos y decir con orgullo lo que su nieto ha hecho.
+Y sobre todo gracias a mis abuelos, que al final siempre son los que más se preocupan por sus nietos y quienes más se alegran por su simple presencia. Otro motivo más para luchar al máximo y que puedan ver con sus propios ojos y decir con orgullo lo que su nieto ha hecho.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%% Resumen
@@ -170,11 +170,11 @@ Y sobretodo gracias a mis abuelos, que al final siempre son los que más se preoc
 %\addcontentsline{toc}{chapter}{Resumen} % si queremos que aparezca en el índice
 \markboth{RESUMEN}{RESUMEN} % encabezado
 
-En este Trabajo Fin de Grado se desarrolla el programa SimpleRTP, cuya función es mediante un modelo API ofrecer una herramienta sencilla para enviar tráfico RTP con la configuración a gusto del usuario. Esto permite experimentar con el protocolo y probar las diferentes maneras de enviar paquetes RTP con configuraciones diversas e incluso provocar errores para comprobar los límites de este.
+En este Trabajo Fin de Grado se desarrolla la biblioteca Python \texttt{SimpleRTP}, que ofrece una interfaz para progarmar aplicaciones (API) sencilla para enviar tráfico RTP (Real-time Transport Protocol) con la configuración a gusto del usuario. Esto permite experimentar con el protocolo y probar las diferentes maneras de enviar paquetes RTP con configuraciones diversas e incluso provocar errores para comprobar los límites de este.
 
-El proyecto nace de la asignatura de este grado PTAVI, con la propuesta de desarrollar un programa que cubra las necesidades de incluir de una forma práctica un programa que trate con mayor detalle el protocolo RTP respecto a lo que se hacía hasta el momento. RTP es un protocolo importante e interesante pero con la biblioteca que se usaba no se podía ver su funcionamiento, limitando las oportunidades en las prácticas de la asignatura. Se busca solventar esto permitiendo el control total de la cabecera RTP con funciones fáciles de usar, con diferentes grados de complejidad según se necesite.
+El proyecto nace a partir de las necesidades identificadas en una asignatura de este grado, PTAVI (Protocolos para la Transmisión de Audio y Vídeo por Internet), con la propuesta de desarrollar un programa que cubra las necesidades de incluir de una forma práctica una biblioteca que permita tratar con mayor detalle el protocolo RTP respecto a lo que se hacía hasta el momento. RTP es un protocolo de gran importancia en el intercambio de flujos multimedia. Con las tecnologías que se utilizan con anterioridad en la asignatura no se podía ver su funcionamiento en detalle, limitando las oportunidades en las prácticas de la asignatura. Se busca solucionar esto permitiendo el control total de la cabecera RTP con funciones fáciles de usar, con diferentes grados de complejidad según se necesite.
 
-En este proyecto hay varias tecnologías implicada, donde las más importantes para el estudio son RTP y MP3, pero se utilizan otras como el lenguaje de programación Python para desarrollar el programa y Wireshark como analizador de paquetes en la red para comprobar los resultados. La combinación de todas estas tecnologías es lo que da como resultado este proyecto y esta memoria donde más adelante se ve a fondo la arquitectura de este.
+En este proyecto hay varias tecnologías implicada, donde las más importantes para el estudio son RTP y MP3, pero se utilizan otras como el lenguaje de programación Python (en su versión 3) para desarrollar el programa y Wireshark como analizador de paquetes en la red para comprobar los resultados.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -185,9 +185,9 @@ En este proyecto hay varias tecnologías implicada, donde las más importantes par
 \markboth{SUMMARY}{SUMMARY} % encabezado
 
 
-In this Thesis is developed the program SimpleRTP, whose function is throught an API model offer a simple tool for sending RTP traffic with the configuration to suit the user preferences. This permits to experiment with the protocol and test the diferent ways of sending RTP packets with various configurations and even cause errors to check the limits of the program.
+In this Thesis is developed the SimpleRTP Python library, that offers an application programming interface (API) to send RTP (Real-time Transport Protocol) traffic with a configuration that suits user preferences. This permits to experiment with the protocol and test the diferent ways of sending RTP packets with various configurations and even cause errors to check the limits of the program.
 
-The project was born form the the subject of this career PTAVI, with the proposal of developing a program that covers the needs to include in a practical way functions that deal with the protocol in grater detail regarding what was done so far. RTP is an insteresting and important protocol but with the actual library it was not possible to see how it works, limiting the scope of the subject practices. The program seeks to solve this by allowing full control of the RTP header with easy-to-use functions, with varying degrees of complexity as needed.
+The project was born form the the subject of this career PTAVI (Protocolos para la Transmisión de Audio y Vídeo por Internet - Audio and Video Protocols over the Internet), with the proposal of developing a program that covers the needs to include in a practical way functions that deal with the protocol in grater detail regarding what was done so far. RTP is an insteresting and important protocol but with the actual library it was not possible to see how it works, limiting the scope of the subject practices. The program seeks to solve this by allowing full control of the RTP header with easy-to-use functions, with varying degrees of complexity as needed.
 
 In this project there are various tecnologies involved, where the most important for the study are RTP and MP3, but others are used as the programing lenguaje Python for developing the program and Wireshark as a packet analyzer in the network for check the results. The combination of all these technologies is what results in this project and this memory where architecture is seen below in depth.
 
@@ -228,7 +228,6 @@ Acepté este proyecto por varios motivos. El primero es que deriva de una asignat
 
 La realización de este proyecto contempla varios retos, entre ellos empezar un programa desde cero al no haber una base previa para el propósito del programa y encontrar la forma de que su utilizarlo sea a la vez sencillo para cualquier persona pero con el detalle suficiente para estudiar. A lo largo de la memoria se explica en mayor profundidad cada punto anteriormente citado y como se ha desarrollado.
 
- 
 \section{Estructura de la memoria}
 \label{sec:estructura}
 
@@ -302,8 +301,15 @@ Entre enero y febrero acabo de pulir y eliminar errores del programa y escribo l
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \cleardoublepage
-\chapter{Estado del arte}
+\chapter{Estado del arte - Tecnologías relacionadas}
 \label{chap:estado}
+
+FIXME: faltaría una introducción al capítulo.
+
+\section{mp32rtp}
+\label{sec:mp32rtp}
+
+FIXME: aquí deberías hablar de mp32rtp... es muy importante porque esto es lo que existía antes. Puedes hacerlo más ampliamente que las demás tecnologías, porque en realidad lo que buscamos es que se entienda que queremos algo parecido a mp32rtp, pero más versátil.
 
 
 \section{Python}
@@ -741,7 +747,7 @@ El programa cliente puede tener cualquier propósito y diferentes implementacione
 
 Existen diferentes niveles de abstracción, desde el nivel más abstracto en el que no es necesario indicar nada sobre el protocolo RTP y solo hay que pasar un fichero MP3, hasta el nivel donde podemos elegir todos los campos de la cabecera RTP, el tamaño del \emph{payload} del paquete y la cantidad de paquetes que queremos enviar.
 
-\subsection{Mayor nivel de abstracción}
+\section{Mayor nivel de abstracción}
 \label {sec:mayor-abs}
 
 Un ejemplo de uso de SimpleRTP con el mayor nivel de abstracción es el siguiente:
@@ -765,7 +771,7 @@ Las siguientes dos líneas son variables para indicar IP y puerto de destino dond
 
 La última línea es donde se envían los paquetes. La función\begin{verbatim} send_rtp_packet \end{verbatim}necesita mínimo todos los argumentos que hemos definido anteriormente: una objeto RtpHeader, un objeto RtpPayloadMp3 y una IP y puerto destino. Sin más argumentos opcionales, el tamaño de \emph{payload} y el número de paquetes enviados toma un valor por defecto.
 
-\subsection{Nivel medio de abstracción}
+\section{Nivel medio de abstracción}
 \label{sec:media-abs}
 
 Entrando algo en detalle se pueden empezar a modificar campos de la cabecera RTP y el tamaño de los paquetes:
@@ -794,7 +800,7 @@ Otra manera de definir campos de la cabecera es mediante funciones específicas p
 En la llamada a sendrtppacket se pasan dos nuevos argumentos, paquetesMP3porRTP y numeroPaquetesRTP. Esto permite elegir el número de paquetes MP3 que contiene un solo paquete RTP aumentando así el tamaño del \emph{payload} RTP. El segundo argumento nos permite elegir cuantos paquetes RTP queremos enviar con la llamada. Esto permite no enviar todo el archivo y cambiar parámetros RTP y enviar más paquetes después si así se desea.
 
 
-\subsection{Menor nivel de abstracción}
+\section{Menor nivel de abstracción}
 \label{sec:menor-abs}
 
 En el menor nivel de abstracción que ofrece SimpleRTP podemos modificar todos los campos de la cabecera RTP junto al tamaño del \emph{payload} del paquete y los paquetes enviados.
@@ -818,7 +824,7 @@ En este ejemplo se usa una nueva función llamada setheader. Esta función pertene
 
 En este nivel por lo tanto se pueden modificar todos los campos de la cabecera RTP de diferentes maneras y controlar el tamaño del \emph{payload} y el número de paquetes.
 
-\subsection {Wireshark}
+\section {Wireshark}
 \label{sec:manual-wireshark}
 
 Para analizar el tráfico generado se entiende que el usuario tiene un conocimiento básico de Wireshark y sabe capturar paquetes y analizar el contenido de cada uno. Sin embargo, incluyo este apartado para explicar cómo ver tráfico RTP en Wireshark ya que normalmente esta opción está desactivada por defecto y por lo tanto no se podría ver la cabecera RTP con sus contenidos.
