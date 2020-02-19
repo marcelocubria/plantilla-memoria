@@ -31,8 +31,8 @@
 \usepackage[nottoc, notlot, notlof, notindex]{tocbibind} %% Opciones de índice
 \usepackage{latexsym}  %% Logo LaTeX
 
-\title{Memoria del Proyecto}
-\author{Nombre del autor}
+\title{SimpleRTP: Una biblioteca en Python para enviar MP3 por RTP}
+\author{Marcelo Cubría Alonso}
 
 \renewcommand{\baselinestretch}{1.5}  %% Interlineado
 
@@ -75,12 +75,12 @@ Trabajo Fin de Grado
 \vspace{2.5cm}
 
 \LARGE
-TÍTULO DEL TRABAJO EN MAYÚSCULAS
+SIMPLERTP: UNA BIBLIOTECA EN PYTHON PARA ENVIAR MP3 POR RTP
 
 \vspace{4cm}
 
 \large
-Autor : Nombre del Alumno/a \\
+Autor : Marcelo Cubría Alonso \\
 Tutor : Dr. Gregorio Robles
 \end{center}
 \end{titlepage}
@@ -145,7 +145,7 @@ Fuenlabrada, a \qquad$\;\,$ de \qquad\qquad\qquad\qquad de 20CE
 \pagenumbering{Roman} % para comenzar la numeracion de paginas en numeros romanos
 \begin{flushright}
 \textit{Dedicado a \\
-mi familia / mi abuelo / mi abuela}
+mi familia que me ha apoyado en todo momento}
 \end{flushright}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -155,8 +155,13 @@ mi familia / mi abuelo / mi abuela}
 %\addcontentsline{toc}{chapter}{Agradecimientos} % si queremos que aparezca en el índice
 \markboth{AGRADECIMIENTOS}{AGRADECIMIENTOS} % encabezado 
 
-Aquí vienen los agradecimientos\ldots Aunque está bien acordarse de la pareja, no hay que olvidarse de dar las gracias a tu madre, que aunque a veces no lo parezca disfrutará tanto de tus logros como tú\ldots 
-Además, la pareja quizás no sea para siempre, pero tu madre sí.
+En primer lugar quiero agradecer a mis padres su continuo apoyo, sin el cual habría sido dificil llegar hasta donde estoy ahora. Siempre han buscado lo mejor para mi y han respaldado mis decisiones, dándome consejos que han sido de vital ayuda para las diferentes cuestiones que he afrontado en la vida. Simplemente vale la pena conseguir los logros que te propongas para que ellos sean más felices.
+
+La carrera no habría sido lo mismo sin mis compañeros desde el inicio de esta, que hacían más ameno el madrugón para ir a estudiar. Si bien con el tiempo nos hemos desperdigado por los diferentes cursos y asignaturas, siempre buscamos encontrarnos de vez en cuando para quedar todos como si acabásemos de empezar la carrera.
+
+Gracias también a mis amigos por que sin ellos, nada sería lo mismo. Su apoyo e interés también es una razón para seguir adelante y poder compartir con ellos los buenos momentos. Espero para ellos todo lo bueno que les pueda ocurrir y les ayudaré igual que ellos hicieron.
+
+Y sobretodo gracias a mis abuelos, que al final siempre son los que más se preocupan por sus nietos y quienes más se alegran por su simple presencia. Otro motivo más para luchar al máximo y que puedan ver con sus propios ojos y decir con orgullo lo que su nieto ha hecho.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%% Resumen
@@ -165,17 +170,12 @@ Además, la pareja quizás no sea para siempre, pero tu madre sí.
 %\addcontentsline{toc}{chapter}{Resumen} % si queremos que aparezca en el índice
 \markboth{RESUMEN}{RESUMEN} % encabezado
 
-Aquí viene un resumen del proyecto.
-Ha de constar de tres o cuatro párrafos, donde se presente de manera clara y concisa de qué va el proyecto. 
-Han de quedar respondidas las siguientes preguntas:
+En este Trabajo Fin de Grado se desarrolla el programa SimpleRTP, cuya función es mediante un modelo API ofrecer una herramienta sencilla para enviar tráfico RTP con la configuración a gusto del usuario. Esto permite experimentar con el protocolo y probar las diferentes maneras de enviar paquetes RTP con configuraciones diversas e incluso provocar errores para comprobar los límites de este.
 
-\begin{itemize}
-  \item ¿De qué va este proyecto? ¿Cuál es su objetivo principal?
-  \item ¿Cómo se ha realizado? ¿Qué tecnologías están involucradas?
-  \item ¿En qué contexto se ha realizado el proyecto? ¿Es un proyecto dentro de un marco general?
-\end{itemize}
+El proyecto nace de la asignatura de este grado PTAVI, con la propuesta de desarrollar un programa que cubra las necesidades de incluir de una forma práctica un programa que trate con mayor detalle el protocolo RTP respecto a lo que se hacía hasta el momento. RTP es un protocolo importante e interesante pero con la biblioteca que se usaba no se podía ver su funcionamiento, limitando las oportunidades en las prácticas de la asignatura. Se busca solventar esto permitiendo el control total de la cabecera RTP con funciones fáciles de usar, con diferentes grados de complejidad según se necesite.
 
-Lo mejor es escribir el resumen al final.
+En este proyecto hay varias tecnologías implicada, donde las más importantes para el estudio son RTP y MP3, pero se utilizan otras como el lenguaje de programación Python para desarrollar el programa y Wireshark como analizador de paquetes en la red para comprobar los resultados. La combinación de todas estas tecnologías es lo que da como resultado este proyecto y esta memoria donde más adelante se ve a fondo la arquitectura de este.
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%% Resumen en inglés
@@ -184,10 +184,12 @@ Lo mejor es escribir el resumen al final.
 %\addcontentsline{toc}{chapter}{Summary} % si queremos que aparezca en el índice
 \markboth{SUMMARY}{SUMMARY} % encabezado
 
-Here comes a translation of the ``Resumen'' into English. 
-Please, double check it for correct grammar and spelling.
-As it is the translation of the ``Resumen'', which is supposed to be written at the end, this as well should be filled out just before submitting.
 
+In this Thesis is developed the program SimpleRTP, whose function is throught an API model offer a simple tool for sending RTP traffic with the configuration to suit the user preferences. This permits to experiment with the protocol and test the diferent ways of sending RTP packets with various configurations and even cause errors to check the limits of the program.
+
+The project was born form the the subject of this career PTAVI, with the proposal of developing a program that covers the needs to include in a practical way functions that deal with the protocol in grater detail regarding what was done so far. RTP is an insteresting and important protocol but with the actual library it was not possible to see how it works, limiting the scope of the subject practices. The program seeks to solve this by allowing full control of the RTP header with easy-to-use functions, with varying degrees of complexity as needed.
+
+In this project there are various tecnologies involved, where the most important for the study are RTP and MP3, but others are used as the programing lenguaje Python for developing the program and Wireshark as a packet analyzer in the network for check the results. The combination of all these technologies is what results in this project and this memory where architecture is seen below in depth.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -220,7 +222,30 @@ As it is the translation of the ``Resumen'', which is supposed to be written at 
 \label{sec:intro} % etiqueta para poder referenciar luego en el texto con ~\ref{sec:intro}
 \pagenumbering{arabic} % para empezar la numeración de página con números
 
-Este Trabajo Fin de Grado nace de la asignatura Protocolos para la Transmisión de Audio y Video en Internet (PTAVI) y la necesidad que había, para la p
+Este Trabajo Fin de Grado nace de la asignatura Protocolos para la Transmisión de Audio y Video en Internet (PTAVI) y la propuesta de crear para esta un programa con el objetivo de mejorar la forma de enseñar, de manera práctica, el protocolo RTP. Actualmente se utiliza un programa llamado \texttt{mp32rtp} el cual es una caja cerrada, es decir no se ve su funcionamiento de como envía un fichero mp3 a través del protocolo RTP. Esta carencia hace que si bien cumpla su objetivo de enviar paquetes, al usarlo en la asignatura para las prácticas no se pueda utilizar para otros fines como son experimentar y probar las capacidades del protocolo.
+
+Acepté este proyecto por varios motivos. El primero es que deriva de una asignatura que me ha resultado muy interesante y combina varios conocimientos adquiridos en la carrera: programación, protocolos a nivel de red e imagen y sonido. Esto se ajusta a mi gusto por programar a la vez que se tratan contenidos audiovisuales, tan importantes en el grado. El segundo es que es un proyecto que puede tener mucha utilidad, que puede ser utilizado y aprovechado por gente y no ser un proyecto que queda en el olvido. Si cumple con su cometido puede tener un buen fin, que es ayudar a otras personas a estudiar el protocolo RTP de una manera práctica.
+
+La realización de este proyecto contempla varios retos, entre ellos empezar un programa desde cero al no haber una base previa para el propósito del programa y encontrar la forma de que su utilizarlo sea a la vez sencillo para cualquier persona pero con el detalle suficiente para estudiar. A lo largo de la memoria se explica en mayor profundidad cada punto anteriormente citado y como se ha desarrollado.
+
+ 
+\section{Estructura de la memoria}
+\label{sec:estructura}
+
+La memoria de este trabajo se divide en diferentes capítulos, resumidos a continuación:
+
+\begin{itemize}
+  \item El primer capítulo explica el origen de la iniactiva de este trabajo y el cómo y porqué se ha llevado a cabo.
+  
+  \item  En el segundo capítulo se expone el objetivo principal que se busca alcanzar y los diferentes objetivos específicos en los que se ha divido para desarrollarlo, incluyendo la planificación temporal que ha supuesto.
+
+  \item Implementar funciones según avanza el programa. Dar más accesibilidad según un modelo API e integrar más funciones a la hora de la utilización añadiendo campos de la cabecera modificables por el usuario.
+
+  \item Verificar el programa con alumnos. Se les ha dado a probar a los alumnos de la asignatura de Protocolos para la transmisión de audio y vídeo en Internet la posibilidad de probar el programa. Con los resultados y sus opiniones ha sido posible mejorar el programa.
+
+  \item Mejorar el programa implementando funciones más sencillas para su uso en función de las pruebas con los alumnos y corregir errores detectados en estas pruebas.
+  
+\end{itemize}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
