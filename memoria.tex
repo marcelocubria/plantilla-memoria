@@ -237,14 +237,15 @@ La memoria de este trabajo se divide en diferentes capítulos, resumidos a contin
   \item El primer capítulo explica el origen de la iniactiva de este trabajo y el cómo y por qué se ha llevado a cabo.
   
   \item  En el segundo capítulo se expone el objetivo principal que se busca alcanzar y los diferentes objetivos específicos en los que se ha divido para desarrollarlo, incluyendo la planificación temporal que ha supuesto.
-  
-  FIXME: No entiendo los tres siguientes puntos... aquí deberíamos hablar de lo que nos vamos a encontrar en los siguientes capítulos, el III, IV y V.
 
-  \item Implementar funciones según avanza el programa. Dar más accesibilidad según un modelo API e integrar más funciones a la hora de la utilización añadiendo campos de la cabecera modificables por el usuario.
+  \item En el siguiente capítulo se hace un repaso de las tecnologías implicadas en este proyecto. Desde los protocólos a analizar hasta el lenguaje de programación con el que se ha hecho el programa y herramientas para verificar los resultados.
 
-  \item Verificar el programa con alumnos. Se les ha dado a probar a los alumnos de la asignatura de Protocolos para la transmisión de audio y vídeo en Internet la posibilidad de probar el programa. Con los resultados y sus opiniones ha sido posible mejorar el programa.
+  \item El cuarto capítulo desarrolla el diseño y la implementación del programa. Con diagramas y blóques de código se explica en profundidad el funcionamiento de todas las funciones de las que se hace uso para enviar paquetes RTP.
 
-  \item Mejorar el programa implementando funciones más sencillas para su uso en función de las pruebas con los alumnos y corregir errores detectados en estas pruebas.
+  \item En quinto capítulo muestra los diferentes resultados que puede ofrecer SimpleRTP. En este capítulo se incluye la prueba con alumnos que se hizo para poner a prueba el programa.
+
+  \item El apéndice contiene una guía para mostrar cómo se puede usar SimpleRTP en un cliente con diferentes niveles de abstracción, incluyendo un codigo de ejemplo. También se muestra cómo configurar Wireshark para poder ver los resultados de SimpleRTP en este.
+
   
 \end{itemize}
 
@@ -354,7 +355,15 @@ Tiene principios que al cumplirlos el código se considera "pythoniano", entre lo
   
 \end{itemize}
 
-FIXME: Explicar que hay python2 y python3, que son (ligeramente) incompatibles entre sí y que este proyecto se ha realizado en Python3, porque Python2 ya no se mantiene activamente.
+Cabe destacar que el proyecto se ha realizado en la versión de Python3 pero que existe una versión anterior llamada Python2. Existen varias diferencias entre las dos pero me he decantado por Python3 por dos motivos fundamentales:
+
+\begin{itemize}
+
+  \item El fín del soporte oficial de Python2 (EOL, End Of Life) se produjo en enero de 2020. Esto significa que no habrá actualizaciones ni corrección de errores desde ese momento.
+
+  \item Python3 es la última versión y actualmente las últimas librerías se están desarrollando para esta, al quedarse obsoleto Python2. También muchas librerías de Python2 no son compatibles con Python3, y ciertas características nativas de Python2 y 3 son diferentes entre ellas haciendo que sean ligeramente incompatibles.
+ 
+\end{itemize}
 
 \section{RTP}
 \label{sec:arteRTP}
@@ -380,11 +389,9 @@ SDP (RFC 4566~\cite{handley1998sdp}) es un formato para describir parámetros de 
 \section {MP3}
 \label {sec:mp3}
 
-MP3 o MPEG-1 Audio Layer III es un estándar de comprensión de audio definido en las ISO 11172-3 e ISO 13818-4 y  uno de los formatos de audio común más usados en el mundo. Entre sus características se encuentra una fuerte compresión que causa pérdidas de información pero un menor tamaño de archivo. Las pérdidas provocadas por la compresión sin embargo no son perceptibles al oído humano gracias a modelos psicoacústicos.
+MP3 o MPEG-1 Audio Layer III ((ISO/IEC 13818-3~\cite{isomp3})) es un estándar de comprensión de audio definido en las ISO 11172-3 e ISO 13818-4 y  uno de los formatos de audio común más usados en el mundo. Entre sus características se encuentra una fuerte compresión que causa pérdidas de información pero un menor tamaño de archivo. Las pérdidas provocadas por la compresión sin embargo no son perceptibles al oído humano gracias a modelos psicoacústicos.
 
-Dentro de esta estándar los ficheros de audio pueden tener diferente velocidad de bit rate (kbits/s) y de velocidad de muestreo (Hz). Ambos parámetros se definen en la cabecera del paquete MP3.
-
- FIXME: falta referencia (URL)
+Dentro de esta estándar los ficheros de audio pueden tener diferente velocidad de bit rate (kbits/s) y de velocidad de muestreo (Hz). Ambos parámetros se definen en la cabecera del paquete MP3. ((RFC 5219~\cite{finlaysonrfc5219}))
  
  
 \section {Bitstring}
@@ -392,24 +399,21 @@ Dentro de esta estándar los ficheros de audio pueden tener diferente velocidad d
 
 \texttt{Bitstring} es una biblioteca de Python diseñada para facilitar el análisis y procesado de datos en formato binario.
 
-\texttt{Bitstring} define un objeto que se puede construir con variables con una gran variedad de tipos, desde integer big y little endian hasta string, hexadecimal, byte y un proprio binario. 
+\texttt{Bitstring} \cite{bitstringdoc} define un objeto que se puede construir con variables con una gran variedad de tipos, desde integer big y little endian hasta string, hexadecimal, byte y un proprio binario. 
 
 Los objetos \texttt{Bitstring} tienen diferentes funciones para unir, truncar, adjuntar y escribir el propio objeto y así modificar su contenido en bits. Estos objetos se pueden leer, buscar y reemplazar para poder tratarlos.
 
 Todas estas características han resultado útiles para la lectura, manejo y creación de cabeceras en formato binario, tanto para las de RTP como para las de MP3.
 
-FIXME: falta referencia (URL)
-
 \section{Wireshark}
 \label{sec:wireshark}
 
-Wireshark es un analizador de protocolos de red que permite analizar a muy bajo nivel todos los paquetes que pasan por la red, disponible para una gran cantidad de plataformas.
+Wireshark \cite{wiresharkdoc} es un analizador de protocolos de red que permite analizar a muy bajo nivel todos los paquetes que pasan por la red, disponible para una gran cantidad de plataformas.
 
 Tiene integrados una gran cantidad de protocolos en continuo aumento que permite detectarlos y analizar sus cabeceras y permite capturar tráfico en tiempo real o analizar capturas guardadas para un análisis posterior. También analiza exhaustivamente tráfico de VoIP (Voice over IP). Puede filtrar el tráfico en base a protocolos o a parámetros decididos por el usuario para tener una captura limpia solo con el tráfico que interesa.
 
 Todas estas características son interesantes y han ayudado mucho a comprobar el funcionamiento del programa al poder ver en detalle los paquetes RTP enviados y sus cabeceras, comprobando que todos los campos que el usuario indicaba al llamar a las funciones se veían reflejados en tráfico real.
 
-FIXME: falta referencia (URL)
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
