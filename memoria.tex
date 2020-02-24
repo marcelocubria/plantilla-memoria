@@ -184,12 +184,11 @@ En este proyecto hay varias tecnologías implicada, donde las más importantes par
 %\addcontentsline{toc}{chapter}{Summary} % si queremos que aparezca en el índice
 \markboth{SUMMARY}{SUMMARY} % encabezado
 
+In this undergraduate thesis the \texttt{SimpleRTP} Python library is developed. \texttt{SimpleRTP} offers an application programming interface (API) to send RTP (Real-time Transport Protocol) traffic with a configuration that suits user preferences. This allows to experiment with the protocol and test the different ways of sending RTP packets with a myriad of possible configurations, and even cause errors to check the limits of the program.
 
-In this Thesis is developed the SimpleRTP Python library, that offers an application programming interface (API) to send RTP (Real-time Transport Protocol) traffic with a configuration that suits user preferences. This permits to experiment with the protocol and test the diferent ways of sending RTP packets with various configurations and even cause errors to check the limits of the program.
+The project was born from one of the the subject of this degree, PTAVI (Protocolos para la Transmisión de Audio y Vídeo por Internet - Audio and Video Protocols over the Internet), with the goal of developing a program that covers the needs to include, in a practical way, functions that deal with the protocol in grater detail. RTP is an important protocol in todays multimedia network exchanges, but with the previous set-up it was not possible to see how it works in detail, limiting the scope of the learning. \texttt{SimpleRTP} seeks to solve this by allowing full control of the RTP header with easy-to-use functions, with varying degrees of complexity as needed.
 
-The project was born form the the subject of this career PTAVI (Protocolos para la Transmisión de Audio y Vídeo por Internet - Audio and Video Protocols over the Internet), with the proposal of developing a program that covers the needs to include in a practical way functions that deal with the protocol in grater detail regarding what was done so far. RTP is an insteresting and important protocol but with the actual library it was not possible to see how it works, limiting the scope of the subject practices. The program seeks to solve this by allowing full control of the RTP header with easy-to-use functions, with varying degrees of complexity as needed.
-
-In this project there are various tecnologies involved, where the most important for the study are RTP and MP3, but others are used as the programing lenguaje Python for developing the program and Wireshark as a packet analyzer in the network for check the results. The combination of all these technologies is what results in this project and this memory where architecture is seen below in depth.
+In this project there are various tecnologies involved, being the most relevant RTP and MP3. However, other technologies are used, as the programing lenguage Python --for the development-- or Wireshark, as a packet analyzer in the network to check the results.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -843,14 +842,16 @@ En el menor nivel de abstracción que ofrece SimpleRTP podemos modificar todos lo
 
     cabeceraRTP = simplertp.RtpHeader()
     csrc = [2000, 3000, 4000, 5000]
-    cabeceraRTP.set_header(version=2, pad_flag=0, ext_flag=0, cc=4, marker=0, \emph{payload}_type=14, ssrc=1000)
+    cabeceraRTP.set_header(version=2, pad_flag=0, ext_flag=0, cc=4, 
+                           marker=0, \emph{payload}_type=14, ssrc=1000)
     cabeceraRTP.setCSRC(csrc)
     audio = simplertp.RtpPayloadMp3('archivo.mp3')
     numeroPaquetesRTP = 0
     paquetesMP3porRTP = 2
     ip = '127.0.0.1'
     port = 33332
-    simplertp.send_rtp_packet(cabeceraRTP, audio, ip, port, paquetesMP3porRTP, numeroPaquetesRTP)
+    simplertp.send_rtp_packet(cabeceraRTP, audio, ip, port,  
+                              paquetesMP3porRTP, numeroPaquetesRTP)
 
 \end{verbatim}
 
@@ -894,7 +895,7 @@ Una vez activado, se podrán ver las capturas como en las imágenes de los apartad
 
 % Las siguientes dos instrucciones es todo lo que necesitas
 % para incluir las citas en la memoria
-\bibliographystyle{abbrv}
+\bibliographystyle{apalike}
 \bibliography{memoria}  % memoria.bib es el nombre del fichero que contiene
 % las referencias bibliográficas. Abre ese fichero y mira el formato que tiene,
 % que se conoce como BibTeX. Hay muchos sitios que exportan referencias en
