@@ -107,7 +107,7 @@ Título del Trabajo con Letras Capitales para Sustantivos y Adjetivos
 
 \vspace{1cm}
 \large
-\textbf{Autor :} Nombre del Alumno/a \\
+\textbf{Autor :} Marcelo Cubría Alonso \\
 \textbf{Tutor :} Dr. Gregorio Robles Martínez
 
 \end{center}
@@ -174,7 +174,7 @@ En este Trabajo Fin de Grado se desarrolla la biblioteca Python \texttt{SimpleRT
 
 El proyecto nace a partir de las necesidades identificadas en una asignatura de este grado, PTAVI (Protocolos para la Transmisión de Audio y Vídeo por Internet), con la propuesta de desarrollar un programa que cubra las necesidades de incluir de una forma práctica una biblioteca que permita tratar con mayor detalle el protocolo RTP respecto a lo que se hacía hasta el momento. RTP es un protocolo de gran importancia en el intercambio de flujos multimedia. Con las tecnologías que se utilizan con anterioridad en la asignatura no se podía ver su funcionamiento en detalle, limitando las oportunidades en las prácticas de la asignatura. Se busca solucionar esto permitiendo el control total de la cabecera RTP con funciones fáciles de usar, con diferentes grados de complejidad según se necesite.
 
-En este proyecto hay varias tecnologías implicada, donde las más importantes para el estudio son RTP y MP3, pero se utilizan otras como el lenguaje de programación Python (en su versión 3) para desarrollar el programa y Wireshark como analizador de paquetes en la red para comprobar los resultados.
+En este proyecto hay varias tecnologías implicadas, donde las más importantes para el estudio son RTP y MP3, pero se utilizan otras como el lenguaje de programación Python (en su versión 3) para desarrollar el programa y Wireshark como analizador de paquetes en la red para comprobar los resultados.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -184,12 +184,11 @@ En este proyecto hay varias tecnologías implicada, donde las más importantes par
 %\addcontentsline{toc}{chapter}{Summary} % si queremos que aparezca en el índice
 \markboth{SUMMARY}{SUMMARY} % encabezado
 
+In this undergraduate thesis the \texttt{SimpleRTP} Python library is developed. \texttt{SimpleRTP} offers an application programming interface (API) to send RTP (Real-time Transport Protocol) traffic with a configuration that suits user preferences. This allows to experiment with the protocol and test the different ways of sending RTP packets with a myriad of possible configurations, and even cause errors to check the limits of the program.
 
-In this Thesis is developed the SimpleRTP Python library, that offers an application programming interface (API) to send RTP (Real-time Transport Protocol) traffic with a configuration that suits user preferences. This permits to experiment with the protocol and test the diferent ways of sending RTP packets with various configurations and even cause errors to check the limits of the program.
+The project was born from one of the the subject of this degree, PTAVI (Protocolos para la Transmisión de Audio y Vídeo por Internet - Audio and Video Protocols over the Internet), with the goal of developing a program that covers the needs to include, in a practical way, functions that deal with the protocol in grater detail. RTP is an important protocol in todays multimedia network exchanges, but with the previous set-up it was not possible to see how it works in detail, limiting the scope of the learning. \texttt{SimpleRTP} seeks to solve this by allowing full control of the RTP header with easy-to-use functions, with varying degrees of complexity as needed.
 
-The project was born form the the subject of this career PTAVI (Protocolos para la Transmisión de Audio y Vídeo por Internet - Audio and Video Protocols over the Internet), with the proposal of developing a program that covers the needs to include in a practical way functions that deal with the protocol in grater detail regarding what was done so far. RTP is an insteresting and important protocol but with the actual library it was not possible to see how it works, limiting the scope of the subject practices. The program seeks to solve this by allowing full control of the RTP header with easy-to-use functions, with varying degrees of complexity as needed.
-
-In this project there are various tecnologies involved, where the most important for the study are RTP and MP3, but others are used as the programing lenguaje Python for developing the program and Wireshark as a packet analyzer in the network for check the results. The combination of all these technologies is what results in this project and this memory where architecture is seen below in depth.
+In this project there are various tecnologies involved, being the most relevant RTP and MP3. However, other technologies are used, as the programing lenguage Python --for the development-- or Wireshark, as a packet analyzer in the network to check the results.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -226,7 +225,7 @@ Este Trabajo Fin de Grado nace de la asignatura Protocolos para la Transmisión d
 
 Acepté este proyecto por varios motivos. El primero es que deriva de una asignatura que me ha resultado muy interesante y combina varios conocimientos adquiridos en la carrera: programación, protocolos a nivel de red e imagen y sonido. Esto se ajusta a mi gusto por programar a la vez que se tratan contenidos audiovisuales, tan importantes en el grado. El segundo es que es un proyecto que puede tener mucha utilidad, que puede ser utilizado y aprovechado por gente y no ser un proyecto que queda en el olvido. Si cumple con su cometido puede tener un buen fin, que es ayudar a otras personas a estudiar el protocolo RTP de una manera práctica.
 
-La realización de este proyecto contempla varios retos, entre ellos empezar un programa desde cero al no haber una base previa para el propósito del programa y encontrar la forma de que su utilizarlo sea a la vez sencillo para cualquier persona pero con el detalle suficiente para estudiar. A lo largo de la memoria se explica en mayor profundidad cada punto anteriormente citado y cómo se ha desarrollado.
+La realización de este proyecto contempla varios retos, entre ellos empezar un programa desde cero al no haber una base previa para el propósito del programa y encontrar la forma de que utilizarlo sea a la vez sencillo para cualquier persona pero con el detalle suficiente para estudiar. A lo largo de la memoria se explica en mayor profundidad cada punto anteriormente citado y cómo se ha desarrollado.
 
 \section{Estructura de la memoria}
 \label{sec:estructura}
@@ -309,7 +308,7 @@ Entre enero y febrero acabo de pulir y eliminar errores de la biblioteca y escri
 
 En este capítulo se introducen todas las tecnologías implicadas en el desarrollo de este proyecto. Primero se presenta el programa que ha dado pie a SimpleRTP, \texttt{mp32rtp}. Después se encuentra una breve descripción del lenguaje de programación Python, que es el que se ha usado para escribir el programa tanto por ser el lenguaje que más me ha gustado por sus características.
 
-A continuación se describen los diferentes protocolos: RTP y MP3 los más importantes para este proyecto al ser respectivamente la cabecera y el dato útil del paquete que transmite el audio. SDP y SIP son dos protocolos importantes para la transmisión de contenido multimedia por RTP por lo que si bien no son de uso obligatorio para \texttt{SimpleRTP} (se pueden usar otro protocolos con las mismas funciones) se exponen sus funciones principales.
+A continuación se describen los diferentes protocolos: RTP y MP3 los más importantes para este proyecto al ser respectivamente la cabecera y el dato útil del paquete que transmite el audio. SDP y SIP son dos protocolos importantes para la transmisión de contenido multimedia por RTP por lo que si bien no son de uso obligatorio para \texttt{SimpleRTP} (se pueden usar otros protocolos con las mismas funciones) se exponen sus funciones principales.
 
 Bitstring es una biblioteca de la que me he servido para manejar de una manera más sencilla los bits que componen las cabeceras de RTP y MP3, al incluir funciones que por defecto no incluye Python.
 Wireshark es un conocido analizador de tráfico que resulta de gran ayuda para ver tráfico real generado \texttt{SimpleRTP} y poder analizar el resultado de enviar paquetes RTP y verificarlo.
@@ -373,7 +372,12 @@ Una de las características de RTP es la de permitir diferentes formatos multimed
 
 RTP funciona junto a un protocolo asociado a este llamado RTCP o Real-time Transport Control Protocol. Este se usa para enviar periódicamente información de control y parámetros de QoS o calidad de servicio y para sincronizar la sincronización entre las fuentes de flujos multimedia. RTCP consume poco ancho de banda comparado a RTP, alrededor de un 5\%.
 
+
+\begin{figure}[h]
 \includegraphics{img/rtp-header}
+\caption{Cabecera de un paquete RTP}
+\label{fig:rtp-header}
+\end{figure}
 
 \section{SIP y SDP}
 \label{sec:SIPSDP}
@@ -389,9 +393,9 @@ SDP (RFC 4566~\cite{handley1998sdp}) es un formato para describir parámetros de 
 \section {MP3}
 \label {sec:mp3}
 
-MP3 o MPEG-1 Audio Layer III ((ISO/IEC 13818-3~\cite{isomp3})) es un estándar de comprensión de audio definido en las ISO 11172-3 e ISO 13818-4 y  uno de los formatos de audio común más usados en el mundo. Entre sus características se encuentra una fuerte compresión que causa pérdidas de información pero un menor tamaño de archivo. Las pérdidas provocadas por la compresión sin embargo no son perceptibles al oído humano gracias a modelos psicoacústicos.
+MP3 o MPEG-1 Audio Layer III (ISO/IEC 13818-3~\cite{isomp3}) es un estándar de comprensión de audio definido en las ISO 11172-3 e ISO 13818-4 y  uno de los formatos de audio común más usados en el mundo. Entre sus características se encuentra una fuerte compresión que causa pérdidas de información pero un menor tamaño de archivo. Las pérdidas provocadas por la compresión sin embargo no son perceptibles al oído humano gracias a modelos psicoacústicos.
 
-Dentro de esta estándar los ficheros de audio pueden tener diferente velocidad de bit rate (kbits/s) y de velocidad de muestreo (Hz). Ambos parámetros se definen en la cabecera del paquete MP3. ((RFC 5219~\cite{finlaysonrfc5219}))
+Dentro de este estándar los ficheros de audio pueden tener diferente velocidad de bit rate (kbits/s) y de velocidad de muestreo (Hz). Ambos parámetros se definen en la cabecera del paquete MP3 (RFC 5219~\cite{finlaysonrfc5219}).
  
  
 \section {Bitstring}
@@ -470,7 +474,7 @@ def __init__(self, version=2, pad_flag=0, ext_flag=0, cc=0, marker=0,
 
 Todos los argumentos con los que se crea un objeto son opcionales y tienen valores por defecto, por lo que no es necesario para un uso básico usar ninguno. Por defecto se define un número de secuencia y timestamp aleatorios (impredecibles) para reforzar la seguridad y evitar ciertos ataques que se basan en estos valores. Estos dos valores se guardan en variables para su uso más adelante.
 
-La función Init llama a la siguiente función que también puede llamar el usuario, set header. Su lógica detrás de esto es la con una sola línea y sin argumentos ni variables se pueda crear una cabecera RTP completa. Los argumentos que se hayan pasado al crear el objeto (si se han pasado, si no los valores por defecto) se utilizan para llamar a set header.
+La función Init llama a la siguiente función que también puede llamar el usuario, set header. Su lógica detrás de esto es que con una sola línea y sin argumentos ni variables se pueda crear una cabecera RTP completa. Los argumentos que se hayan pasado al crear el objeto (si se han pasado, si no los valores por defecto) se utilizan para llamar a set header.
 
 \subsubsection{Set header}
 
@@ -565,7 +569,7 @@ Cuando se invoca a esta función, se analiza el siguiente paquete que se vaya a e
 
 El campo version (en inglés) de dos bits indica si nos encontramos ante un paquete MPEG1, MPEG2 o MPEG2.5. Sabiendo la versión del paquete se analizan los valores de 'bitrate' y 'sampling' para, con estos tres valores, acceder a los diccionarios que contienen los valores de bps y frecuencia de muestreo. Esto se hace porque los valores de 'bitrate' y 'sampling' son valores binarios que no tienen ningun valor en decimal, si no que hay que asociarlos a los valores del diccionario.
 
-Con estos valores podemos calcular el tamaño en bits del paquete, y por lo tanto guardar el paquete en una variabkle e identificar donde empieza el siguiente.
+Con estos valores podemos calcular el tamaño en bits del paquete, y por lo tanto guardar el paquete en una variable e identificar donde empieza el siguiente.
 
 A continuación una parte de la función donde se ven los últimos pasos:
 
@@ -843,14 +847,16 @@ En el menor nivel de abstracción que ofrece SimpleRTP podemos modificar todos lo
 
     cabeceraRTP = simplertp.RtpHeader()
     csrc = [2000, 3000, 4000, 5000]
-    cabeceraRTP.set_header(version=2, pad_flag=0, ext_flag=0, cc=4, marker=0, \emph{payload}_type=14, ssrc=1000)
+    cabeceraRTP.set_header(version=2, pad_flag=0, ext_flag=0, cc=4, 
+                           marker=0, \emph{payload}_type=14, ssrc=1000)
     cabeceraRTP.setCSRC(csrc)
     audio = simplertp.RtpPayloadMp3('archivo.mp3')
     numeroPaquetesRTP = 0
     paquetesMP3porRTP = 2
     ip = '127.0.0.1'
     port = 33332
-    simplertp.send_rtp_packet(cabeceraRTP, audio, ip, port, paquetesMP3porRTP, numeroPaquetesRTP)
+    simplertp.send_rtp_packet(cabeceraRTP, audio, ip, port,  
+                              paquetesMP3porRTP, numeroPaquetesRTP)
 
 \end{verbatim}
 
@@ -863,7 +869,7 @@ En este nivel por lo tanto se pueden modificar todos los campos de la cabecera R
 
 Para analizar el tráfico generado se entiende que el usuario tiene un conocimiento básico de Wireshark y sabe capturar paquetes y analizar el contenido de cada uno. Sin embargo, incluyo este apartado para explicar cómo ver tráfico RTP en Wireshark ya que normalmente esta opción está desactivada por defecto y por lo tanto no se podría ver la cabecera RTP con sus contenidos.
 
-Por defecto enviando tráfico RTP veremos lo siguiente en Wireshark:
+Por defecto enviando tráfico RTP veremos en Wireshark algo parecido a la figura \ref{fig:wireshark-udp}:
 
 \begin{figure}
   \centering
@@ -894,7 +900,7 @@ Una vez activado, se podrán ver las capturas como en las imágenes de los apartad
 
 % Las siguientes dos instrucciones es todo lo que necesitas
 % para incluir las citas en la memoria
-\bibliographystyle{abbrv}
+\bibliographystyle{apalike}
 \bibliography{memoria}  % memoria.bib es el nombre del fichero que contiene
 % las referencias bibliográficas. Abre ese fichero y mira el formato que tiene,
 % que se conoce como BibTeX. Hay muchos sitios que exportan referencias en
