@@ -221,7 +221,7 @@ In this project there are various tecnologies involved, being the most relevant 
 \label{sec:intro} % etiqueta para poder referenciar luego en el texto con ~\ref{sec:intro}
 \pagenumbering{arabic} % para empezar la numeración de página con números
 
-Este Trabajo Fin de Grado nace de la asignatura Protocolos para la Transmisión de Audio y Video en Internet (PTAVI) y la propuesta de crear para esta un programa con el objetivo de mejorar la forma de enseñar, de manera práctica, el protocolo RTP. Actualmente se utiliza un programa llamado \texttt{mp32rtp} el cual es una caja cerrada, es decir no se ve su funcionamiento de como envía un fichero mp3 a través del protocolo RTP. Esta carencia hace que si bien cumpla su objetivo de enviar paquetes, al usarlo en la asignatura para las prácticas no se pueda utilizar para otros fines como son experimentar y probar las capacidades del protocolo.
+Este Trabajo Fin de Grado nace de la asignatura Protocolos para la Transmisión de Audio y Video en Internet (PTAVI) y la propuesta de crear para esta un programa con el objetivo de mejorar la forma de enseñar, de manera práctica, el protocolo RTP. Actualmente se utiliza un programa llamado \texttt{mp32rtp} el cual es una caja cerrada, es decir no se ve su funcionamiento de como envía un fichero en formato MP3 a través del protocolo RTP. Esta carencia hace que si bien cumpla su objetivo de enviar paquetes, al usarlo en la asignatura para las prácticas no se pueda utilizar para otros fines como son experimentar y probar las capacidades del protocolo.
 
 Acepté este proyecto por varios motivos. El primero es que deriva de una asignatura que me ha resultado muy interesante y combina varios conocimientos adquiridos en la carrera: programación, protocolos a nivel de red e imagen y sonido. Esto se ajusta a mi gusto por programar a la vez que se tratan contenidos audiovisuales, tan importantes en el grado. El segundo es que es un proyecto que puede tener mucha utilidad, que puede ser utilizado y aprovechado por gente y no ser un proyecto que queda en el olvido. Si cumple con su cometido puede tener un buen fin, que es ayudar a otras personas a estudiar el protocolo RTP de una manera práctica.
 
@@ -294,7 +294,9 @@ En diciembre la biblioteca ya está acabado con las funcionalidad que se consider
 
 En enero de 2020, tras recibir respuesta de los alumnos, identifico en qué ha fallado la biblioteca y en qué ha tenido éxito, y procedo a mejorar el programa y a pulirlo en función a esto.
 
-Entre enero y febrero acabo de pulir y eliminar errores de la biblioteca y escribo la memoria del Trabajo de Fin de Grado, finalizando este mismo.
+Entre enero y febrero acabo de pulir y eliminar errores de la biblioteca y escribo la memoria del Trabajo de Fin de Grado, finalizando este mismo. 
+
+En la figura~\ref{fig:cronograma} se puede ver el cronograma del TFG.
 
 \begin{figure}[h]
 \includegraphics[width=16cm, keepaspectratio]{img/cronograma}
@@ -401,7 +403,7 @@ SDP (RFC 4566~\cite{handley1998sdp}) es un formato para describir parámetros de 
 
 MP3 o MPEG-1 Audio Layer III (ISO/IEC 13818-3~\cite{isomp3}) es un estándar de comprensión de audio definido en las ISO 11172-3 e ISO 13818-4 y  uno de los formatos de audio común más usados en el mundo. Entre sus características se encuentra una fuerte compresión que causa pérdidas de información pero un menor tamaño de archivo. Las pérdidas provocadas por la compresión sin embargo no son perceptibles al oído humano gracias a modelos psicoacústicos.
 
-Dentro de este estándar los ficheros de audio pueden tener diferente velocidad de bit rate (kbits/s) y de velocidad de muestreo (Hz). Ambos parámetros se definen en la cabecera del paquete MP3 (RFC 5219~\cite{finlaysonrfc5219}).
+Dentro de este estándar los ficheros de audio pueden tener diferente velocidad de bit rate (kbits/s) y de velocidad de muestreo (Hz). Ambos parámetros se definen en la cabecera del paquete con MP3 (RFC 5219~\cite{finlaysonrfc5219}).
  
  
 \section {Bitstring}
@@ -544,7 +546,7 @@ def _next(self, frameTimeMs):
 \subsection{RtpPayloadMP3}
 \label{sec:rtppayloadmp3}
 
-Una vez tenemos en un objeto todo lo necesario para formar la cabecera de un paquete RTP, el siguiente paso es el \emph{payload} o la carga útil del paquete. Aquí es donde se encuentra el paquete MP3. Un fichero MP3 es una sucesión continua de paquetes por lo que es necesario localizar la cabecera de cada paquete y analizarla para ver sus cualidades como el tiempo de muestreo o los bits por segundo.
+Una vez tenemos en un objeto todo lo necesario para formar la cabecera de un paquete RTP, el siguiente paso es el \emph{payload} o la carga útil del paquete. Aquí es donde se encuentra el paquete con MP3. Un fichero MP3 es una sucesión continua de paquetes por lo que es necesario localizar la cabecera de cada paquete y analizarla para ver sus cualidades como el tiempo de muestreo o los bits por segundo.
 
 La clase RtpPayloadMP3 tiene dos funciones. La primera, init, es la que se llama al crear un objeto de la clase y la segunda, llamada \_take\_mp3\_frame es la encargada de analizar el paquete. El diagrama que representa el flujo de funcionamiento de la clase es el que se puede ver en la Figura~\ref{fig:payload}.
 
@@ -605,7 +607,7 @@ El diagrama que representa el flujo de funcionamiento de la función se muestra e
 \end{figure}
 
 
-Tras abrir el socket UDP con la dirección indicada, se empiezan a enviar paquetes RTP en bucle. El paquete que se envía se forma juntando los diferentes campos que contiene el objeto RtpHeader en orden y tras esto se juntan al final el número de paquetes MP3 indicados, que forman el \emph{payload} del paquete final. Cada vez que se añade un paquete MP3 se llama a la función \_take\_mp3\_frame que es la encargada de identificar el siguiente paquete. 
+Tras abrir el socket UDP con la dirección indicada, se empiezan a enviar paquetes RTP en bucle. El paquete que se envía se forma juntando los diferentes campos que contiene el objeto RtpHeader en orden y tras esto se juntan al final el número de paquetes MP3 indicados, que forman el \emph{payload} del paquete final. Cada vez que se añade un paquete con MP3 se llama a la función \_take\_mp3\_frame que es la encargada de identificar el siguiente paquete. 
 
 Una vez formado el paquete se convierte a bytes y se envía. Después se aumentan los valores de número de secuencia y timestamp RTP para prepararse para enviar el siguiente paquete.
 
@@ -675,7 +677,7 @@ Lo primero que se puede notar es que el tamaño de los paquetes ha cambiado. Esto
 
 En el detalle de la cabecera RTP, casi todos los campos siguen tomando los valores por defecto, menos el CC (ya que al final es la cantidad de CSRCs presentes en la cabecera) y los nuevos CSRCs. Podemos comprobar que todos los valores son correctos, ya que o son los indicados por el programa cliente o son los valores tomados por defecto. Los valores que toman los CSRCs se muestran en hexadecimal, pero son correctos al corresponderse a 2000, 3000, 4000 y 5000 en decimal respectivamente.
 
-Otra prueba es cambiando más campos a la cabecera RTP pasando valor a todos los campos, como en el ejemplo de menor nivel de abstracción, pero dejando algunos valores iguales que los de por defecto. Este último cambio lo hago en el último ejemplo ya que asignar valores sin sentido a los campos de la cabecera provocará errores. En la figura \ref{fig:wireshark-5} podemos ver la cabecera con más cambios y con otro tamaño de paquete para comprobar los cambios de tamaño de \emph{payload}, habiendo ahora un paquete MP3 encapsulado.
+Otra prueba es cambiando más campos a la cabecera RTP pasando valor a todos los campos, como en el ejemplo de menor nivel de abstracción, pero dejando algunos valores iguales que los de por defecto. Este último cambio lo hago en el último ejemplo ya que asignar valores sin sentido a los campos de la cabecera provocará errores. En la figura \ref{fig:wireshark-5} podemos ver la cabecera con más cambios y con otro tamaño de paquete para comprobar los cambios de tamaño de \emph{payload}, habiendo ahora un paquete con MP3 encapsulado.
 
 \begin{figure}
   \centering
